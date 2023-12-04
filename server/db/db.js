@@ -1,11 +1,11 @@
-// const mongoose=require('mongoose')
+const mongoose=require('mongoose')
 
-// // mongoose.connect('mongodb://root:wyj1217qwerTYuiOP..@8.140.193.253:27017/Campus-Second-Hand')
+mongoose.connect('mongodb://root:wyj1217qwerTYuiOP..@8.140.193.253:27017/?authSource=admin')
 
-// const conn=mongoose.connection
+const conn=mongoose.connection
 
-// conn.on('open',()=>{
-//     console.log('连接成功');
-// })
+conn.on('open',()=>{
+    console.log('连接成功');
+})
 
-// module.exports=mongoose
+module.exports=mongoose

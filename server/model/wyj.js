@@ -5,6 +5,8 @@ const test=new mongoose.Schema({
 })
 
 const testModel=mongoose.model('test',test,'test')
-
+// testModel.create({
+//     title:'测试数据'
+// })
 
 module.exports={testModel}
