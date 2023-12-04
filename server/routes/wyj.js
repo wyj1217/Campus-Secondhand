@@ -1,6 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
-    res.send()
+var {testModel}=require('../model/wyj')
+
+router.get('/test', async (req,res)=>{
+    const data=await testModel.find()
+    res.send(data)
 })
+
+module.exports = router;
+

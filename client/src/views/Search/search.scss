@@ -1,0 +1,30 @@
+.search{
+    .search-ipt{
+        display: flex;
+        align-items: center;
+        .left-icon{
+            margin-left: 5px;
+            font-size: 25px;
+        }
+        .rv-search{
+            width: 340px;
+        }
+    }
+    .hot-search{
+        margin-top: 30px;
+        margin-left: 18px;
+        p{
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+    .history-search{
+        margin-top: 30px;
+        margin-left: 18px;
+        p{
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+
+}

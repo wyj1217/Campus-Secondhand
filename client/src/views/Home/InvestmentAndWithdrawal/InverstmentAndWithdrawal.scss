@@ -1,0 +1,40 @@
+.InverstmentAndWithdrawal{
+    .bg{
+        position: relative;
+        img{
+            position: relative;
+        }
+        .topbar{
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            p{
+                color: white;
+                margin-left: 125px;
+                font-size: 18px;
+            }
+            .left-icon{
+                color: white;
+                font-size: 25px;
+                margin-left: 5px;
+            }
+        }
+    }
+    .info{
+        width: 339px;
+        height: 122px;
+        border-radius: 8px;
+        margin: -110px 18px;
+        z-index: 99;
+        position: absolute;
+        background-color: white;
+        box-shadow: 0px 0px 10px 2px #C4C4C4;
+        .p1{
+            margin-top: 14px;
+            margin-left: 12px;
+        }
+    }
+}
