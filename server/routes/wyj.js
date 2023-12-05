@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var {testModel,searchResModel}=require('../model/wyj')
+var {testModel,searchResModel,putModel,getModel,goodsModel}=require('../model/wyj')
 
 router.get('/test', async (req,res)=>{
     const data=await testModel.find()
@@ -15,11 +15,22 @@ router.post('/searchRes',async (req,res)=>{
   const data2=await searchResModel.find({name:reg})
 
   res.send({res:[data1,data2]})
-
-
-
-
     // const data=awa
+})
+
+router.get('/putList',async (req,res)=>{
+  const data=await putModel.find()
+  res.send(data)
+})
+
+router.get('/getList',async(req,res)=>{
+  const data=await getModel.find()
+  res.send(data)
+})
+
+router.get('/goods',async (req,res)=>{
+  const data=await goodsModel.find()
+  res.send(data)
 })
 
 module.exports = router;

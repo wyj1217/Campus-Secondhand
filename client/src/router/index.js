@@ -11,6 +11,7 @@ import Recycle from '../views/Publish/Recycle'
 import Message from "../views/Message";
 import My from "../views/My";
 import Search from "../views/Search";
+import SearchResult from "../views/searchResult";
 import InverstmentAndWithdrawal from "../views/Home/InvestmentAndWithdrawal";
 
 export default createBrowserRouter([
@@ -45,6 +46,10 @@ export default createBrowserRouter([
   {
     path: "/publish",
     element: <Publish />,
+  },
+  {
+    path:'/searchResult',
+    element:<SearchResult />
   },
   {
     path: "/book",

@@ -1,14 +1,48 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import bg from './imgs/bg.png'
 import './InverstmentAndWithdrawal.scss'
 import { Search ,Tabs} from 'react-vant';
-import { ArrowLeft,LocationO,ClockO,Paid,Arrow} from '@react-vant/icons';
+import { useNavigate } from 'react-router';
+import axios from '../../../utils/index'
+import { ArrowLeft,LocationO,ClockO,Paid,Arrow,Edit,DeleteO} from '@react-vant/icons';
 
 export default function InverstmentAndWithdrawal() {
 
-    const goHome=()=>{
-        window.location.href='/home'
+    const [put,setPut]=useState([])
+    const [get,setGet]=useState([])
+    const [show,setShow]=useState(true)
+
+    const getPut=async ()=>{
+        const {data}=await axios.get('/wyj/putList')
+        data.forEach(item=>{
+            item.img='data:image/png;base64,'+item.img
+            item.headImg='data:image/png;base64,'+item.headImg
+        })
+        setPut(data)
     }
+    const getGet=async ()=>{
+        const {data}=await axios.get('/wyj/getList')
+        data.forEach(item=>{
+            item.img='data:image/png;base64,'+item.img
+            item.headImg='data:image/png;base64,'+item.headImg
+        })
+        setGet(data)
+    }
+    const navigate = useNavigate();
+    const goHome=()=>{
+        navigate('/home')
+    }
+
+    useEffect(()=>{
+        getPut()
+        getGet()
+    },[])
+
+    const handleChange=()=>{
+        console.log(show);
+        setShow(!show)
+    }
+    console.log(get);
 
     const tq=['投放物品','取出物品']
   return (
@@ -38,10 +72,59 @@ export default function InverstmentAndWithdrawal() {
             </div>
         </div>
         <div className='tq-div'>
-            <Tabs color='#44B15D' className='tq-tab' align='start'>
+            <Tabs color='#44B15D' className='tq-tab' align='start' onChange={handleChange}>
                     {tq.map((item,index) => (
                     <Tabs.TabPane key={index} title={item}>
-                        {item}
+                        {show?
+                        <ul className='ul1'>
+                            {put.map(item=>(
+                                <li>
+                                    <img src={item.img} alt="" />
+                                    <div className='ul1-info'>
+                                        <p className='ul1-info-text'>{item.title}</p>
+                                        <p className='price'>￥{item.price}</p>
+                                        <div className='edit_delete'>
+                                            <div className='edit_div'>
+                                                <Edit className='edit' />
+                                                <span>编辑</span>
+                                            </div>
+                                            <div className='delte_div'>
+                                                <DeleteO className='delte' />
+                                                <span>下架</span>
+                                            </div>
+                                            <div className='state'>
+                                                入柜码
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>:
+                        <ul className='ul2'>
+                            {get.map(item=>(
+                                <li>
+                                    <img src={item.img} alt="" />
+                                    <div className='ul1-info'>
+                                        <p className='ul1-info-text'>{item.title}</p>
+                                        <p className='price'>￥{item.price}</p>
+                                        <div className='edit_delete'>
+                                            <div className='edit_div'>
+                                                <Edit className='edit' />
+                                                <span>编辑</span>
+                                            </div>
+                                            <div className='delte_div'>
+                                                <DeleteO className='delte' />
+                                                <span>下架</span>
+                                            </div>
+                                            <div className='state'>
+                                                {show?'':'取物码'}
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                        }
                     </Tabs.TabPane>
                     ))}
             </Tabs>

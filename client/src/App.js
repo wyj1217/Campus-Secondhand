@@ -6,6 +6,7 @@ export default function App() {
   return (
     <div>
       <Outlet />
+      <p style={{height:100}}></p>
       <Footer />
     </div>
   )

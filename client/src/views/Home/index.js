@@ -1,10 +1,11 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import './home.scss'
 import { Search,Swiper,Tabs } from 'react-vant';
 import { NavLink,Outlet,useNavigate } from 'react-router-dom';
 import lb1 from './imgs/lb1.png'
 import lb2 from './imgs/lb2.png'
 import lb3 from './imgs/lb3.png'
+import axios from '../../utils'
 import touqu from '../../assets/Home-Images/touqu.png'
 import shangmen from '../../assets/Home-Images/shangmen.png'
 import xianzhi from '../../assets/Home-Images/xianzhi.png'
@@ -21,6 +22,22 @@ export default function Home() {
     const [value, setValue] = useState('')
 
     const [curIdx,setCurIdx]=useState(0)
+    const [goodsList,setGoodsList]=useState([])
+
+    const getGoods=async ()=>{
+        const {data}=await axios.get('/wyj/goods')
+        data.forEach(item=>{
+            item.children.forEach(item2=>{
+                item2.img='data:image/png;base64,'+item2.img
+                item2.headImg='data:image/png;base64,'+item2.headImg
+            })
+        })
+        setGoodsList(data)
+    }
+
+    useEffect(()=>{
+        getGoods()
+    },[])
 
     const category=[
         '电子产品','书籍','服饰','家具','美妆','玩具'
@@ -90,10 +107,23 @@ export default function Home() {
             </div>
         </div>
         <div className='category-area'>
-            <Tabs color='#44B15D'>
-                {category.map((item,index) => (
-                <Tabs.TabPane key={index} title={item}>
-                    {item}
+            <Tabs color='#44B15D' align='start'>
+                {goodsList.map((item,index) => (
+                <Tabs.TabPane key={index} title={item.name} name={item.name}>
+                   <ul>
+                    {item.children.map(item2=>(
+                        <li>
+                                <img src={item2.img} alt="" />
+                                <p className='title'>{item2.title}</p>
+                                <span className='sp1'>￥{item2.price}</span>
+                                <span className='sp2'>{item2.starNum}人收藏</span>
+                                <div className='author'>
+                                    <img src={item2.headImg} alt="" />
+                                    <span>{item2.who}</span>
+                                </div>
+                        </li>
+                    ))}
+                   </ul>
                 </Tabs.TabPane>
                 ))}
             </Tabs>
