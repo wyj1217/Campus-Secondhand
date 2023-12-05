@@ -7,6 +7,9 @@ import TreasureHouse from '../views/TreasureHouse'
 import Publish from '../views/Publish'
 import Message from '../views/Message'
 import My from '../views/My'
+import Search from '../views/Search'
+import SearchResult from '../views/searchResult'
+import InverstmentAndWithdrawal from '../views/Home/InvestmentAndWithdrawal'
 
 
 
@@ -39,7 +42,20 @@ export default createBrowserRouter([
             {
                 path:'/my',
                 element:<My />,
-            }
+            },
+            
         ]
+    },
+    {
+        path:'/search',
+        element:<Search />,
+    },
+    {
+        path:'/serachResult',
+        element:<SearchResult />,
+    },
+    {
+        path:'/InverstmentAndWithdrawal',
+        element:<InverstmentAndWithdrawal />
     }
 ])

@@ -1,0 +1,92 @@
+.home{
+    .search{
+        width: 360px;
+        height: 40px;
+        margin: 10px auto;
+    }
+    .swiper-area{
+        width: 100%;
+        .swiper{
+            margin: 0 auto;
+            width: 340px;
+        }
+    }
+    .four-function{
+        display: flex;
+        margin: 27px;
+        div{
+            flex: 1;
+            text-align: center;
+            position: relative;
+            img{
+                width: 30px;
+                height: 30px;
+            }
+            h5{
+                position: absolute;
+                top: 50%;
+                left: 17%;
+            }
+        }
+    }
+    .thr-function{
+        display: flex;
+        margin-top: 48px;
+        margin-left: 18px;
+        .youzhi{
+            width: 163px;
+            height:203px;
+            border-radius: 8px;
+            background-color: #EDEFF4;
+            .text{
+                margin: 14px 74px 31px 15px;
+            }
+            .img{
+                margin: 0px 15px 12px 15px
+            }
+        }
+        .d1{
+            .haowu{
+                width: 163px;
+                height:97px;
+                border-radius: 8px;
+                background-color: #EDEFF4;
+                margin-left:13px;
+                margin-bottom: 9px;
+                position: relative;
+                .text{
+                    margin: 14px 74px 43px 14px;
+                }
+                .img{
+                    position: absolute;
+                    right: -18px;
+                    bottom: -23px;
+                }
+            }
+            .hot{
+                width: 163px;
+                height:97px;
+                border-radius: 8px;
+                background-color: #EDEFF4;
+                margin-left:13px;
+                .text{
+                    margin: 14px 74px 43px 14px;
+                }
+                .img{
+                    position: absolute;
+                    right: 18px;
+                    bottom: 265px;
+                }
+            }
+        }
+    }
+    .category-area{
+        // margin-left: 18px;
+        margin-top: 24px;
+        .rv-tab--active{
+            font-weight: bold;
+            // font-size: 17px;
+            color: black;
+        }
+    }
+}
