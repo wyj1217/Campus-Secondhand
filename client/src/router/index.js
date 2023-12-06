@@ -13,6 +13,8 @@ import My from "../views/My";
 import Search from "../views/Search";
 import SearchResult from "../views/searchResult";
 import InverstmentAndWithdrawal from "../views/Home/InvestmentAndWithdrawal";
+import ToDoorRecycling from "../views/Home/ToDoorRecycling";
+import NowRecycling from '../views/Home/ToDoorRecycling/NowRecycling'
 
 export default createBrowserRouter([
   {
@@ -48,10 +50,6 @@ export default createBrowserRouter([
     element: <Publish />,
   },
   {
-    path:'/searchResult',
-    element:<SearchResult />
-  },
-  {
     path: "/book",
     element: <Book />,
   },
@@ -69,7 +67,19 @@ export default createBrowserRouter([
     element: <Search />,
   },
   {
+    path:'/searchResult',
+    element:<SearchResult />
+  },
+  {
     path: "/InverstmentAndWithdrawal",
     element: <InverstmentAndWithdrawal />,
   },
+  {
+    path:'/toDoorRecycling',
+    element:<ToDoorRecycling />
+  },
+  {
+    path:'/nowRecycling',
+    element:<NowRecycling />
+  }
 ]);

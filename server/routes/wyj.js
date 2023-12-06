@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var multiparty=require('multiparty')
 var {testModel,searchResModel,putModel,getModel,goodsModel}=require('../model/wyj')
 
 router.get('/test', async (req,res)=>{
@@ -31,6 +31,16 @@ router.get('/getList',async(req,res)=>{
 router.get('/goods',async (req,res)=>{
   const data=await goodsModel.find()
   res.send(data)
+})
+
+router.post('/uploadImg',async (req,res)=>{
+  // console.log(req.body);
+  let form=new multiparty.Form()
+  form.uploadDir='/upload'
+
+  form.parse(req,(err,fields,files)=>{
+    console.log(err,);
+  })
 })
 
 module.exports = router;

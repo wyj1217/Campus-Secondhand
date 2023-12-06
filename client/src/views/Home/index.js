@@ -52,6 +52,9 @@ export default function Home() {
     const toTouqu=()=>{
         nav('/InverstmentAndWithdrawal')
     }
+    const toDoor=()=>{
+        nav('/toDoorRecycling')
+    }
   return (
     <div className='home'>
         <Search value={value} 
@@ -77,7 +80,7 @@ export default function Home() {
                 <img src={touqu} alt="" />
                 <h5>投取物品</h5>
             </div>
-            <div>
+            <div onClick={toDoor}>
                 <img src={shangmen} alt="" />
                 <h5>上门回收</h5>
             </div>
