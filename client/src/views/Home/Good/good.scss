@@ -1,0 +1,27 @@
+.good{
+    .bg{
+        position: relative;
+        img{
+            position: relative;
+        }
+        .topbar{
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            .topbar-text{
+                color: white;
+                margin-left: 125px;
+                font-size: 18px;
+            }
+            .left-icon{
+                color: white;
+                font-size: 25px;
+                margin-left: 5px;
+            }
+        }
+    }
+    
+}

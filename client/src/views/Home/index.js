@@ -55,6 +55,12 @@ export default function Home() {
     const toDoor=()=>{
         nav('/toDoorRecycling')
     }
+    const toYouzhi=()=>{
+        nav('/youzhi')
+    }
+    const toGood=()=>{
+        nav('/good')
+    }
   return (
     <div className='home'>
         <Search value={value} 
@@ -94,12 +100,12 @@ export default function Home() {
             </div>
         </div>
         <div className='thr-function'>
-            <div className='youzhi'>
+            <div className='youzhi' onClick={toYouzhi}>
                 <img src={youzhi} alt="" className='text' />
                 <img src={yz} alt="" className='img' />
             </div>
             <div className='d1'>
-                <div className='haowu'>
+                <div className='haowu' onClick={toGood}>
                     <img src={haowu} alt="" className='text' />
                     <img src={hw} alt="" className='img' />
                 </div>
