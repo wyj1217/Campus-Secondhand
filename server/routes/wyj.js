@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var multiparty=require('multiparty')
 var {testModel,searchResModel,putModel,getModel,goodsModel
-,sellerModel,suggestModel}=require('../model/wyj')
+,sellerModel,suggestModel,hotTopicModel,topicDetailModel}=require('../model/wyj')
 
 router.get('/test', async (req,res)=>{
     const data=await testModel.find()
@@ -56,6 +56,21 @@ router.get('/suggest',async (req,res)=>{
 
 router.post('/detail',async (req,res)=>{
   const data=await suggestModel.find({_id:req.body.id})
+  res.send(data)
+})
+
+router.get('/hotTopic',async (req,res)=>{
+  const data=await hotTopicModel.find()
+  res.send(data)
+})
+
+router.post('/topicDetail',async (req,res)=>{
+  const data=await topicDetailModel.find({pid:req.body.id})
+  data.forEach(item=>{
+    item.headImg='data:image/png;base64,'+item.headImg
+    item.topicBg='data:image/png;base64,'+item.topicBg
+    item.topicImg='data:image/png;base64,'+item.topicImg
+  })
   res.send(data)
 })
 

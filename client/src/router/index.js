@@ -18,6 +18,8 @@ import NowRecycling from '../views/Home/ToDoorRecycling/NowRecycling'
 import Youzhi from '../views/Home/Youzhi'
 import Good from "../views/Home/Good";
 import Detail from "../views/Home/Good/Detail";
+import HotTopic from "../views/Home/HotTopic";
+import TopicDetail from "../views/Home/HotTopic/TopicDetail";
 
 export default createBrowserRouter([
   {
@@ -96,5 +98,15 @@ export default createBrowserRouter([
   {
     path:'/detail',
     element:<Detail />
+  },
+  //热门话题
+  {
+    path:'/hotTopic',
+    element:<HotTopic />
+  },
+  //话题详情
+  {
+    path:'/topicDetail',
+    element:<TopicDetail />
   }
 ]);

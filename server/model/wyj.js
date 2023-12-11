@@ -62,6 +62,12 @@ const p2Base64=p2.toString('base64');
 const p3=fs.readFileSync(path.join(__dirname,'../','./wyj-imgs/p3.png'));
 const p3Base64=p3.toString('base64');
 
+const bg=fs.readFileSync(path.join(__dirname,'../','./wyj-imgs/bg.png'));
+const bgBase64=bg.toString('base64');
+
+const topicImg=fs.readFileSync(path.join(__dirname,'../','./wyj-imgs/topicImg.png'));
+const topicImgBase64=topicImg.toString('base64');
+
 const searchData=new mongoose.Schema({
     img:String,
     title:String,
@@ -117,15 +123,61 @@ const suggest=new mongoose.Schema({
     fansNum:String,
 })
 
+const hotTopic=new mongoose.Schema({
+    title:String,
+    readCount:Number,
+})
+
+const topicDetail=new mongoose.Schema({
+    topicBg:String,
+    topicImg:String,
+    title:String,
+    desc:String,
+    readCount:Number,
+    commentNum:Number,
+    likeNum:Number,
+    shareNum:Number,
+    headImg:String,
+    username:String,
+    comment:Array,
+    pid:{
+        type:mongoose.Types.ObjectId,
+        ref:'hotTopic'
+    }
+})
+
 const searchResModel=mongoose.model('searchRes',searchData,'searchRes')
 const putModel=mongoose.model('put',put,'put')
 const getModel=mongoose.model('get',get,'get')
 const goodsModel=mongoose.model('goods',goods,'goods')
 const sellerModel=mongoose.model('seller',seller,'seller')
 const suggestModel=mongoose.model('suggest',suggest,'suggest')
+const hotTopicModel=mongoose.model('hotTopic',hotTopic,'hotTopic')
+const topicDetailModel=mongoose.model('topicDetail',topicDetail,'topicDetail')
 
 
-module.exports={searchResModel,putModel,getModel,goodsModel,sellerModel,suggestModel}
+module.exports={searchResModel,putModel,getModel,goodsModel,sellerModel,suggestModel,
+    hotTopicModel,topicDetailModel}
+
+    // topicDetailModel.create({
+    //     topicBg:bgBase64,
+    //     topicImg:topicImgBase64,
+    //     title:'#要好货，戳这里',
+    //     desc:'我这里有好货我这里有好货我这里有好货我这里有好货我这里有好货我这里有好货我这里有好货',
+    //     readCount:38642,
+    //     commentNum:1234,
+    //     likeNum:1234,
+    //     shareNum:1234,
+    //     headImg:user1Base64,
+    //     username:'小王',
+    //     comment:[{username:'自由的轮胎',comment:'嗯，不错，值得推荐！！！'}],
+    //     pid:'65767e7a46fef5fc8aacb8cc'
+    // })
+
+    // hotTopicModel.create({
+    //     title:'快来签到了，送礼物！',
+    //     readCount:38642,
+    // })
 
 // suggestModel.create({
 //     username:'专业卖二手的小王',

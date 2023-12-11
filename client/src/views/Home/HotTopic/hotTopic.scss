@@ -1,0 +1,23 @@
+.hotTopic{
+    .topic{
+        li{
+            display: flex;
+            margin-top: 20px;
+            .no{
+                font-size: 18px;
+                font-weight: bold;
+                color: #44B15D;
+                margin-left: 18px;
+                margin-right: 18px;
+            }
+            .title{
+                font-size: 16px;
+                color: #333333;
+                width: 70%;
+            }
+            .readCount{
+                color: #CACACA;
+            }
+        }
+    }
+}

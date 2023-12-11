@@ -61,6 +61,9 @@ export default function Home() {
     const toGood=()=>{
         nav('/good')
     }
+    const toHotTopic=()=>{
+        nav('/hotTopic')
+    }
   return (
     <div className='home'>
         <Search value={value} 
@@ -109,7 +112,7 @@ export default function Home() {
                     <img src={haowu} alt="" className='text' />
                     <img src={hw} alt="" className='img' />
                 </div>
-                <div className='hot'>
+                <div className='hot' onClick={toHotTopic}>
                     <img src={hot} alt="" className='text' />
                     <img src={rm} alt="" className='img' />
                 </div>
