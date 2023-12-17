@@ -45,6 +45,7 @@
                 margin-right: 10px;
             }
         }
+        
     }
     .add_info{
         width: 340px;
@@ -83,12 +84,13 @@
         }
     }
     .operation{
+        // margin-top: 280px;
         width: 340px;
         height:70px;
         line-height: 70px;
         background-color: white;
         border-radius: 8px;
-        margin: 100px auto;
+        margin: 280px auto;
         display: flex;
         align-items: center;
         .now{
@@ -119,4 +121,66 @@
             }
         }
     }
+}
+
+.popup{
+    .popup_div{
+        height: 100%;
+        .popup_title{
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 18px;
+        }
+        .rv-tabs__content{
+            .rv-tab__pane{
+                ul{
+                    li{
+                        display: inline-block;
+                        margin: 10px 10px;
+                        // background-color: #F6F6F6;
+                        border-radius: 5px;
+                        padding:10px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+        .rv-button{
+            background-color: #44B15D;
+            // margin-top: 40px;
+            width: 80%;
+            margin: 40px auto;
+            border-radius: 10px;
+            color: white;
+           
+            .rv-button__content{
+                color: white;
+               .rv-button__text{
+                color: white;
+                font-size: 16px;
+                letter-spacing: 2px;
+               }
+            }
+        }
+        
+    }
+}
+.noselectCategory{
+    display: inline-block;
+    margin: 10px 10px;
+    background-color: #F6F6F6;
+    border-radius: 5px;
+    padding:10px;
+    box-sizing: border-box;
+}
+.goodsCategory{
+    background-color: #44B15D;
+    color: white;
+    display: inline-block;
+    margin: 10px 10px;
+    // background-color: #F6F6F6;
+    border-radius: 5px;
+    padding:10px;
+    box-sizing: border-box;
 }
