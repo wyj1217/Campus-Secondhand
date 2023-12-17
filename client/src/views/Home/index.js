@@ -39,6 +39,7 @@ export default function Home() {
     <div className='home'>
         <Search value={value} 
         onFocus={toSearch} 
+        
         clearable placeholder="请输入搜索关键词"
         className='search' />
 
