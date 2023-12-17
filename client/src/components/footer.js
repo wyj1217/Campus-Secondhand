@@ -17,7 +17,8 @@ export default function Footer() {
 
   return (
     <div className='footer'>
-        <Tabbar activeColor='#44B15D' 
+        <Tabbar 
+        activeColor='#44B15D' 
         inactiveColor='#000' 
         className='tabbar'
         defaultValue='/home'

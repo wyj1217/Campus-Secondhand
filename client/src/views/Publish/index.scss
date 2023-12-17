@@ -1,0 +1,50 @@
+
+.publish{
+  position: relative;
+}
+
+.bg-img img{
+  width: 100%;
+  margin-top: 100px;
+  opacity: 0.1;
+}
+
+.absolute{
+  position: absolute;
+  top: 120px;
+  left: 20px;
+}
+
+.absolute-img1 span{
+  display: block;
+  margin-left: -5px;
+}
+.absolute-img2 span{
+  display: block;
+  margin-left: -5px;
+}
+.absolute-img3 span{
+  display: block;
+  margin-left: -5px;
+}
+.absolute-img1{
+  position: absolute;
+  bottom: 115px;
+  left: 32px;
+}
+.absolute-img2{
+  position: absolute;
+  bottom: 115px;
+  left: 161px;
+}
+.absolute-img3{
+  position: absolute;
+  bottom: 115px;
+  left: 288px;
+}
+
+.publish-btn{
+  position: absolute;
+  left: 179px;
+  bottom: 7px;
+}

@@ -67,7 +67,7 @@ export default function SearchPage() {
             console.log(copy_list,'copy');
             sessionStorage.setItem('history',JSON.stringify(copy_list))
             setHisList(copy_list)
-            nav('/serachResult',{state:ev})
+            nav('/searchResult',{state:ev})
             
       
     }

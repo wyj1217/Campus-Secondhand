@@ -1,0 +1,60 @@
+.youzhi{
+    .navbar{
+        font-weight: bold;
+        .rv-nav-bar__title{
+            font-weight: bold;
+        }
+    }
+    .tabs{
+        ul{
+            padding-left: 0;
+            li:first-child{
+                margin: 10px 20px;
+            }
+            li{
+                height: 45px;
+                margin: 20px;
+                position: relative;
+                .headImg{
+                    position: absolute;
+                    top: 10px;
+                }
+                .name{
+                    position: absolute;
+                    left: 55px;
+                    top: 13px;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                .desc{
+                    position: absolute;
+                    left: 55px;
+                    top: 37px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    color: #CACACA;
+                }
+                .guanzhu{
+                    // width: 54px;
+                    height: 23px;
+                    line-height: 23px;
+                    text-align: center;
+                    background-color: #44B15D;
+                    position: absolute;
+                    border-radius: 16px;
+                    top: 21px;
+                    font-size: 12px;
+                    color: white;
+                    right: -10px;
+                    .rv-button__text{
+                        color: white;
+                    }
+                }
+                .img{
+                    position: absolute;
+                    top: 10px;
+                }
+            }
+        }
+    }
+}

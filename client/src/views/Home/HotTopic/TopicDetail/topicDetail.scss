@@ -1,0 +1,128 @@
+.topicDetail{
+    .top{
+        height: 250px;
+        display: flex;
+        background-image: url('./imgs/bg.png');
+        .img1{
+            margin: 85px 18px;
+        }
+        .d1{
+            margin-top: 96px;
+            h2{
+                color: white;
+                margin-left: 12px;
+            }
+            h3{
+                color: white;
+                margin-left: 12px;
+                margin-top: 20px;
+            }
+        }
+    }
+    .navbar{
+        background-color: none;
+        
+    }
+    .detail{
+        .userInfo{
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            img{
+                width: 36px;
+                height: 36px;
+                margin-left: 19px;
+                margin-right: 12px;
+            }
+            .username{
+                font-size: 18px;
+            }
+            .btn{
+                width: 54px;
+                height: 23px;
+                text-align: center;
+                // line-height: 23px;
+                border: 1px solid #FF8800;
+                margin-left: 187px;
+                background-color: white;
+                border-radius: 16px;
+                color: #FF8800;
+                font-weight: bold;
+                // padding: 3px;
+            }
+            
+        }
+        .desc{
+            margin-left: 19px;
+            margin-top: 12px;
+            .desc-title{
+                // display: flex;
+                line-height: 23px;
+                width: 93%;
+                text-align: left;
+                .p1{
+                    color: #44B15D;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                .p2{
+                    font-size: 16px;
+                }
+            }
+            .icons{
+                display: flex;
+                margin-top: 11px;
+                align-items: center;
+                justify-content: space-between;
+                width: 92%;
+                .icons-d1{
+                    font-size: 16px;
+                    display: flex;
+                    align-items: center;
+                    .share{
+                        font-size: 18px;
+                    }
+                }
+                .icons-d2{
+                    display: flex;
+                    align-items: center;
+                    font-size: 16px;
+                    img{
+                        // font-size: 18px;
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+                .icons-d3{
+                    display: flex;
+                    align-items: center;
+                    font-size: 16px;
+                    .comment{
+                        font-size: 18px;
+                    }
+                }
+            }
+            .likeAndComment{
+                    .lc_d1{
+                        display: flex;
+                        align-items: center;
+                        margin-top: 10px;
+                        img{
+                            margin-right: 12px;
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                    .lc_d2{
+                        display: flex;
+                        align-items: center;
+                        margin-top: 10px;
+                        .lc_icon{
+                            margin-right: 12px;
+                            font-size: 18px;
+                        }
+                    }
+            }
+        }
+    }
+}

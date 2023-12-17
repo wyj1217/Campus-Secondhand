@@ -1,0 +1,105 @@
+.good{
+    .bg{
+        position: relative;
+        img{
+            position: relative;
+        }
+        .topbar{
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            .topbar-text{
+                color: white;
+                margin-left: 125px;
+                font-size: 18px;
+            }
+            .left-icon{
+                color: white;
+                font-size: 25px;
+                margin-left: 5px;
+            }
+        }
+    }
+    .goods-area{
+        ul{
+            margin: 0 auto;
+
+            .d1{
+                background-color: white;
+                box-shadow: 0 2px 10px 4px #C4C4C4;
+                border-radius: 8px;
+                width: 339px;
+                height: 275px;
+                margin: -100px auto;
+                position: absolute;
+                left: 19px;
+                top: 180px;
+                .li1{
+                    display: flex;
+                    margin: 16px;
+                    align-items: center;
+                    img{
+                        width: 34px;
+                        height: 34px;
+                    }
+                    .username{
+                        margin-left: 12px;
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                }
+                .desc{
+                    margin-left: 12px;
+                    margin-top: 12px;
+                    overflow: hidden;
+			        text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+
+                }
+                .imgs{
+                    margin-left: 13px;
+                    margin-top: 12px;
+                }
+                .icon{
+                    float: right;
+                    display: flex;
+                    margin-top: 13px;
+                    .d3{
+                        display: flex;
+                        align-items: center;
+                    }
+                    .d4{
+                        margin-right: 12px;
+                        margin-left: 12px;
+                        display: flex;
+                        align-items: center;
+                    }
+                    
+                }
+                .detail{
+                    position: absolute;
+                    top: 240px;
+                    left: 12px;
+                
+                }
+            }
+        }
+    }
+    .rv-overlay{
+        .rv-popup{
+            
+        }
+    }
+}
+
+.rv-image-preview__image-wrapper{
+    img{
+        width: 375px;
+        height: 375px;
+    }
+}

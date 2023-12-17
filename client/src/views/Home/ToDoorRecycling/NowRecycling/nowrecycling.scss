@@ -1,0 +1,122 @@
+.nowRecycling{
+    background-color: #EDEFF4;
+    height: 100%;
+    .navbar{
+        .rv-nav-bar__content{
+            .rv-nav-bar__left{
+                font-size: 25px;
+            }
+            .rv-nav-bar__title{
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+    }
+    .add_goods{
+        width: 340px;
+        height: 145px;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 12px;
+        background-color: white;
+        border-radius: 8px;
+        text-align: center;
+        overflow: hidden;
+        .add_title{
+            font-size: 16px;
+            color: #666666;
+            margin: 38px 74px 22px 74px;
+        }
+        .add_btn{
+            margin: 0 auto;
+            align-self: center;
+            width: 100px;
+            display: flex;
+            .add_icon{
+                
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color:#44B15D;
+                color: white;
+                font-size: 16px;
+                text-align: center;
+                line-height: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .add_info{
+        width: 340px;
+        height: 275px;
+        margin: 12px auto;
+        background-color: white;
+        border-radius: 8px;
+    }
+    .fuwu{
+        display: flex;
+        width: 340px;
+        height: 54px;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 54px;
+        background-color: white;
+        border-radius: 8px;
+        margin: 46px auto;
+        .question{
+            margin-left: -180px;
+        }
+        .p1{
+            margin-left: 12px;
+            font-weight:bold;
+            
+        }
+        .p2{
+            margin-right: 12px;
+            width: 66px;
+            height: 21px;
+            line-height: 21px;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid #44B15D;
+            color: #44B15D;
+        }
+    }
+    .operation{
+        width: 340px;
+        height:70px;
+        line-height: 70px;
+        background-color: white;
+        border-radius: 8px;
+        margin: 100px auto;
+        display: flex;
+        align-items: center;
+        .now{
+            width: 138px;
+            height: 46px;
+            line-height: 46px;
+            text-align: center;
+            background-color: #44B15D;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            // margin-right: 17px;
+            margin-left: -30px;
+            border-radius: 15px;
+            letter-spacing: 2px;
+        }
+        .price{
+            // display: flex;
+            // width: 30%;
+            margin-left: 15px;
+            width: 200px;
+            font-size: 16px;
+            font-weight: bold;
+            .yugu{
+                span{
+                    color:#FF8800
+                }
+            }
+        }
+    }
+}
