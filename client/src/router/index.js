@@ -10,6 +10,11 @@ import Unused from '../views/Publish/Unused'
 import Recycle from '../views/Publish/Recycle'
 import Message from "../views/Message";
 import My from "../views/My";
+import Taren from "../views/My/Taren/Taren"
+import Goumai from "../views/My/Dingdan/Goumai"
+import Fabu from "../views/My/Dingdan/Fabu"
+import Shoucang from "../views/My/Dingdan/Shoucang"
+import Maichu from "../views/My/Dingdan/Maichu"
 import Search from "../views/Search";
 import SearchResult from "../views/searchResult";
 import InverstmentAndWithdrawal from "../views/Home/InvestmentAndWithdrawal";
@@ -108,5 +113,26 @@ export default createBrowserRouter([
   {
     path:'/topicDetail',
     element:<TopicDetail />
+  },
+  // 订单
+  {
+    path:"/goumai",
+    element:<Goumai />
+  },
+  {
+    path:"/maichu",
+    element:<Maichu />
+  },
+  {
+    path:"/fabu",
+    element:<Fabu />
+  },
+  {
+    path:"/shoucang",
+    element:<Shoucang />
+  },
+  {
+    path:"/taren",
+    element:<Taren />
   }
 ]);
