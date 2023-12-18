@@ -10,4 +10,35 @@
             }
         }
     }
+    .order_div{
+        ul{
+            margin-left: 18px;
+            
+            li{
+                font-size: 16px;
+                margin-top: 18px;
+                margin-bottom: 18px;
+                align-items: center;
+                position: relative;
+                img{
+                    width: 88px;
+                    height: 88px;
+                }
+                display: flex;
+                .order_info{
+                    margin-left: 18px;
+                    .order_time{
+                        color: #999999;
+                    }
+                    
+                }
+                .delete_icon{
+                    position: absolute;
+                    right: 10px;
+                    top: 20px;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
 }
