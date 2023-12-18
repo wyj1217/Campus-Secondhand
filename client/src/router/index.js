@@ -1,11 +1,11 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter,Navigate } from "react-router-dom";
 import App from "../App";
 import GuidePage from "../views/Guide-Page";
 
 import Home from "../views/Home";
 import TreasureHouse from "../views/TreasureHouse";
 import Publish from "../views/Publish";
-import Book from '../views/Publish/Book'
+import Book from '../views/Publish/Book/index'
 import Unused from '../views/Publish/Unused'
 import Recycle from '../views/Publish/Recycle'
 import Message from "../views/Message";
@@ -28,7 +28,7 @@ export default createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <GuidePage />,
+        element: <Navigate to={'/home'} />,
       },
       {
         path: "/home",

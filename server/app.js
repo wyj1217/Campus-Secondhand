@@ -17,14 +17,17 @@ var jfqRouter=require('./routes/jfq')
 var app = express();
 app.use(cors())
 // view engine setup
+// app.use('/upload',express.static(path.join(__dirname, 'upload')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.set('/upload',express.static(__dirname + '/upload'))
+// app.set('/upload',express.static(__dirname + 'upload'))
+app.set('/upload',express.static('upload'))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 app.use('/wyj',wyjRouter)
