@@ -28,6 +28,9 @@ export default function Todoorrecycling() {
     const handleNowRecycling=()=>{
         nav('/nowRecycling')
     }
+    const handleMyOrder=()=>{
+        nav('/myorder')
+    }
   return (
     <div className='todoor'>
          <NavBar
@@ -79,7 +82,7 @@ export default function Todoorrecycling() {
                 <p className='share-title'>分享</p>
             </div>
             <div className='btn'>
-            <Button plain type='primary' round={true} className='myOrder'>
+            <Button plain type='primary' round={true} className='myOrder' onClick={handleMyOrder}>
                 我的订单
             </Button>
             <Button className='nowRecycling' onClick={handleNowRecycling}>

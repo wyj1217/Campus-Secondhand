@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var multiparty=require('multiparty')
+
 var {testModel,searchResModel,putModel,getModel,goodsModel
 ,sellerModel,suggestModel,hotTopicModel,topicDetailModel}=require('../model/wyj')
+var multiparty=require('multiparty')
 
 router.get('/test', async (req,res)=>{
     const data=await testModel.find()
@@ -73,6 +75,70 @@ router.post('/topicDetail',async (req,res)=>{
   })
   res.send(data)
 })
+
+router.post('/uploadImg',async (req,res)=>{
+  let form=new multiparty.Form()
+  form.uploadDir='upload'
+
+
+  form.parse(req,(err,formData,imgData)=>{
+    console.log(imgData);
+    // res.send({img:'http://localhost:3000/'+imgData.avatar[0].path})
+  })
+})
+
+router.post('/addLove',async (req,res)=>{
+  console.log(req.body);
+  
+ 
+  await topicDetailModel.updateOne({_id:req.body.id},{$inc:{likeNum:1}})
+   
+
+  // console.log(data,'uuuuuuuuuuuuu');
+  const data=await topicDetailModel.find()
+  // console.log(data,'点赞数加一之后');
+
+  // console.log(data);
+  // const data=await suggestModel.find()
+  // console.log(data);
+  res.send(data)
+})
+
+router.get('/detail',async (req,res)=>{
+  const data=await topicDetailModel.find()
+  res.send(data)
+})
+
+// router.post('/lookItemDetail',async (req,res)=>{
+//   const item=req.body.item
+//   // console.log(item);
+
+//   const data=await suggestModel.find()
+//   const idx=data.findIndex(item=>item.username==item.who)
+//   data.forEach(async item=>{
+//     if(idx==-1){
+//        await suggestModel.create(
+//       {
+//         username:item.who,
+//         headImg:item.headImg,
+//         desc:item.title,
+//         price:item.price,
+//         img:[item.img],
+//         likeNum:item.starNum,
+//         commentNum:item.starNum,
+//         loveNum:item.starNum,
+//       }
+//   )
+//     }else{
+//       return item
+//     }
+//   })
+
+  
+  
+//   console.log(data,'data');
+//   // // res.send()
+// })
 
 module.exports = router;
 

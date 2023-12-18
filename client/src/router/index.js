@@ -25,6 +25,7 @@ import Good from "../views/Home/Good";
 import Detail from "../views/Home/Good/Detail";
 import HotTopic from "../views/Home/HotTopic";
 import TopicDetail from "../views/Home/HotTopic/TopicDetail";
+import MyOrder from "../views/Home/ToDoorRecycling/MyOrder";
 
 export default createBrowserRouter([
   {
@@ -91,6 +92,10 @@ export default createBrowserRouter([
   {
     path:'/nowRecycling',
     element:<NowRecycling />
+  },
+  {
+    path:'/myorder',
+    element:<MyOrder />
   },
   {
     path:'/youzhi',
