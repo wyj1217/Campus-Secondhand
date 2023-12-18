@@ -25,7 +25,7 @@ export default function Good() {
         setImages(data[0].img)
     }
 
-    console.log(suggest);
+    console.log(suggest,'suggest');
 
     useEffect(()=>{
         getSuggest()

@@ -111,6 +111,14 @@
                             margin-right: 12px;
                             width: 16px;
                             height: 16px;
+                            // filter: drop-shadow(138px -29px rgb(255, 0, 0));
+                            // background-color: red;
+                        }
+                        ul{
+                            display: flex;
+                            li{
+                                display: flex;
+                            }
                         }
                     }
                     .lc_d2{
@@ -122,7 +130,12 @@
                             font-size: 18px;
                         }
                     }
+                    
             }
+           
         }
     }
+}
+.likeIt{
+    
 }

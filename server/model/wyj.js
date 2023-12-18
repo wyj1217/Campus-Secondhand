@@ -140,10 +140,21 @@ const topicDetail=new mongoose.Schema({
     headImg:String,
     username:String,
     comment:Array,
+    likeList:Array,
     pid:{
         type:mongoose.Types.ObjectId,
         ref:'hotTopic'
     }
+})
+
+const recycleOrder=new mongoose.Schema({
+    img:String,
+    title:String,
+    status:String,
+    time:String,
+    price:Number,
+    address:String,
+    name:String,
 })
 
 const searchResModel=mongoose.model('searchRes',searchData,'searchRes')
@@ -154,6 +165,8 @@ const sellerModel=mongoose.model('seller',seller,'seller')
 const suggestModel=mongoose.model('suggest',suggest,'suggest')
 const hotTopicModel=mongoose.model('hotTopic',hotTopic,'hotTopic')
 const topicDetailModel=mongoose.model('topicDetail',topicDetail,'topicDetail')
+const recycleOrderModel=mongoose.model('recycleOrder',recycleOrder,'recycleOrder')
+
 
 
 module.exports={searchResModel,putModel,getModel,goodsModel,sellerModel,suggestModel,
@@ -171,6 +184,7 @@ module.exports={searchResModel,putModel,getModel,goodsModel,sellerModel,suggestM
     //     headImg:user1Base64,
     //     username:'小王',
     //     comment:[{username:'自由的轮胎',comment:'嗯，不错，值得推荐！！！'}],
+    //     likeList:[{username:'大馒头'},{username:'小馒头',}],
     //     pid:'65767e7a46fef5fc8aacb8cc'
     // })
 

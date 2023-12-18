@@ -22,7 +22,10 @@ export default function Home() {
     const [value, setValue] = useState('')
 
     const [curIdx,setCurIdx]=useState(0)
-    const [goodsList,setGoodsList]=useState([])
+    const [goodsList,setGoodsList]=useState(JSON.parse(sessionStorage.getItem('goodsList')) || [])
+
+
+
 
     const getGoods=async ()=>{
         const {data}=await axios.get('/wyj/goods')
@@ -33,15 +36,12 @@ export default function Home() {
             })
         })
         setGoodsList(data)
+        sessionStorage.setItem('goodsList',JSON.stringify(data))
     }
 
     useEffect(()=>{
         getGoods()
     },[])
-
-    const category=[
-        '电子产品','书籍','服饰','家具','美妆','玩具'
-    ]
 
     const nav=useNavigate()
 
@@ -64,10 +64,12 @@ export default function Home() {
     const toHotTopic=()=>{
         nav('/hotTopic')
     }
+
   return (
     <div className='home'>
         <Search value={value} 
         onFocus={toSearch} 
+        
         clearable placeholder="请输入搜索关键词"
         className='search' />
 
