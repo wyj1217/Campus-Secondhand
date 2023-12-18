@@ -7,7 +7,7 @@ export default function My() {
     <div>
       <div className='head'>
         <div className='img'>
-          <img src={require("../My/imgs/img2.png") } alt="" />
+          <img src={require("./imgs/img2.png") } alt="" />
         </div>
         <div className='user'>
           <div >
