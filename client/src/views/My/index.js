@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./my.scss"
 import {useNavigate} from "react-router-dom"
+import { Popup, Cell } from 'react-vant' 
 export default function My() {
   let nav = useNavigate()
+  const [visible, setVisible] = useState(false)
   return (
     <div>
       <div className='head'>
@@ -25,6 +27,7 @@ export default function My() {
           </div>
         </div>
         <div className='xyf'>
+          <img src={require("../My/imgs/img13.png")} alt=""  onClick={()=>{nav("/geren")}}/>
               <button>信誉分：80</button>
             </div>
       </div>
@@ -42,8 +45,13 @@ export default function My() {
           <span>赚入</span>
         </div>
       </div>
-      <div className='qd'>
+      <div className='qd' isLink onClick={() => setVisible(true)}>
         <p>每日签到，领福利</p>
+        <Popup visible={visible} onClose={() => setVisible(false)}>
+          <div>
+            
+          </div>
+        </Popup>
       </div>
       <div className='dd'>
         <p>我的订单</p>

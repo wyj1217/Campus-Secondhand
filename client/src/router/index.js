@@ -11,6 +11,8 @@ import Recycle from '../views/Publish/Recycle'
 import Message from "../views/Message";
 import My from "../views/My";
 import Taren from "../views/My/Taren/Taren"
+import Touxiang from "../views/My/Geren/Touxiang"
+import Geren from "../views/My/Geren/Geren"
 import Goumai from "../views/My/Dingdan/Goumai"
 import Fabu from "../views/My/Dingdan/Fabu"
 import Shoucang from "../views/My/Dingdan/Shoucang"
@@ -139,5 +141,13 @@ export default createBrowserRouter([
   {
     path:"/taren",
     element:<Taren />
+  },
+  {
+    path:"/geren",
+    element:<Geren />
+  },
+  {
+    path:"/touxiang",
+    element:<Touxiang />
   }
 ]);
