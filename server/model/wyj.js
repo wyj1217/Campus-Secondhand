@@ -170,7 +170,7 @@ const recycleOrderModel=mongoose.model('recycleOrder',recycleOrder,'recycleOrder
 
 
 module.exports={searchResModel,putModel,getModel,goodsModel,sellerModel,suggestModel,
-    hotTopicModel,topicDetailModel}
+    hotTopicModel,topicDetailModel,recycleOrderModel}
 
     // topicDetailModel.create({
     //     topicBg:bgBase64,

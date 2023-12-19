@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import './nowrecycling.scss'
-import { Button,NavBar,Tabs} from 'react-vant'
+import { Button,NavBar,Tabs,Dialog,Loading } from 'react-vant'
 import { useNavigate } from 'react-router-dom'
 import { Add } from '@react-vant/icons';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs'
 import axios from '../../../../utils'
-import {Form,Input, Dialog, TextArea, DatePicker, Selector, 
+import {Form,Input,  TextArea, DatePicker, Selector, 
     Slider, Stepper, Switch,ImageUploader, Space, Toast,Popup,
     } from 'antd-mobile'
 import {Upload} from 'antd'
@@ -151,12 +151,38 @@ export default function NowRecycling() {
         console.log(extend.items);
         setStatus(extend.items[0].label)
     }
-    const addMyGoods=()=>{
+    const addMyGoods=async ()=>{
         console.log(username);
         console.log(address);
         console.log(goodsName);
         console.log(time);
         console.log(status);
+        console.log(imageUrl);
+        const data={
+            username,
+            address,
+            goodsName,
+            time,
+            status,
+            imageUrl
+        }
+        
+        
+        setTimeout(async ()=>{
+            Toast.show({
+                icon: 'loading',
+                content: '请稍等...',
+                duration: 1700,
+            })
+            await axios.post('/wyj/addMyGoods',{data})
+
+            setTimeout(() => {
+                Dialog.alert({
+                    message: `添加成功！可在我的订单查看详情哦...`,
+                  })
+            }, 1700)
+           
+        })
     }
   
   return (
@@ -250,7 +276,7 @@ export default function NowRecycling() {
                         listType="picture-card"
                         className="avatar-uploader"
                         showUploadList={false}
-                        action="http://localhost:3000/wyj/uploadImg"
+                        action="http://localhost:3000/wyj/upload"
                         // beforeUpload={beforeUpload}
                         onChange={(info)=>handleUploadImg(info)}
                     >

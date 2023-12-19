@@ -3,7 +3,7 @@ var router = express.Router();
 var multiparty=require('multiparty')
 
 var {testModel,searchResModel,putModel,getModel,goodsModel
-,sellerModel,suggestModel,hotTopicModel,topicDetailModel}=require('../model/wyj')
+,sellerModel,suggestModel,hotTopicModel,topicDetailModel,recycleOrderModel}=require('../model/wyj')
 var multiparty=require('multiparty')
 
 router.get('/test', async (req,res)=>{
@@ -76,15 +76,19 @@ router.post('/topicDetail',async (req,res)=>{
   res.send(data)
 })
 
-router.post('/uploadImg',async (req,res)=>{
+router.post('/upload',async (req,res)=>{
   let form=new multiparty.Form()
   form.uploadDir='upload'
-
-
-  form.parse(req,(err,formData,imgData)=>{
-    console.log(imgData);
-    // res.send({img:'http://localhost:3000/'+imgData.avatar[0].path})
+  form.parse(req,(err,fields,files)=>{
+    // console.log(files);
+    res.send({path:files.avatar[0].path})
   })
+
+
+  // form.parse(req,(err,formData,imgData)=>{
+  //   console.log(imgData);
+  //   // res.send({img:'http://localhost:3000/'+imgData.avatar[0].path})
+  // })
 })
 
 router.post('/addLove',async (req,res)=>{
@@ -107,6 +111,31 @@ router.post('/addLove',async (req,res)=>{
 router.get('/detail',async (req,res)=>{
   const data=await topicDetailModel.find()
   res.send(data)
+})
+
+router.post('/addMyGoods',async (req,res)=>{
+  const {data}=req.body
+  console.log(data);
+  await recycleOrderModel.create({
+    img:data.imageUrl,
+    title:data.goodsName,
+    status:data.status,
+    time:data.time,
+    address:data.address,
+    name:data.username,
+  })
+
+  res.send()
+})
+
+router.get('/myOrder',async (req,res)=>{
+  const data=await recycleOrderModel.find()
+  res.send(data)
+})
+
+router.post('/delOrder',async (req,res)=>{
+  await recycleOrderModel.deleteOne({_id:req.body.id})
+  res.send()
 })
 
 // router.post('/lookItemDetail',async (req,res)=>{

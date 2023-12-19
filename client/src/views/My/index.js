@@ -1,16 +1,16 @@
 import React from 'react'
-import "./My.css"
-
+import "./my.scss"
+import {useNavigate} from "react-router-dom"
 export default function My() {
-
+  let nav = useNavigate()
   return (
     <div>
       <div className='head'>
         <div className='img'>
-          <img src={require("../My/imgs/img2.png") } alt="" />
+          <img src={require("./imgs/img2.png") } alt="" />
         </div>
         <div className='user'>
-          <div >
+          <div>
           <p className='name'>斯文Jun_</p>
           <div>
             <div className='gz'>
@@ -47,19 +47,19 @@ export default function My() {
       </div>
       <div className='dd'>
         <p>我的订单</p>
-        <div className='gm'>
+        <div className='gm' onClick={()=>{nav("/goumai")}}>
           <img src={require("../My/imgs/img6.png")} alt="" />
           <p>购买</p>         
         </div>
-        <div className='gm'>
+        <div className='gm' onClick={()=>{nav("/maichu")}}>
           <img src={require("../My/imgs/img7.png")} alt="" />
           <p>卖出</p>         
         </div>
-        <div className='gm'>
+        <div className='gm' onClick={()=>{nav("/fabu")}}>
           <img src={require("../My/imgs/img5.png")} alt="" />
           <p>发布</p>         
         </div>
-        <div className='gm'>
+        <div className='gm' onClick={()=>{nav("/shoucang")}}>
           <img src={require("../My/imgs/img4.png")} alt="" />
           <p>收藏</p>         
         </div>

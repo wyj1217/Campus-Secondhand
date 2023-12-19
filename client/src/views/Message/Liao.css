@@ -1,0 +1,57 @@
+.header_6{
+    width: 100%;
+    height: 73vh;
+    overflow: hidden;
+}
+.header_7:last-child{
+    margin-left: 80%;
+}
+.header_7:last-child div{
+    width: 80px;
+    margin-top: -40px;
+}
+.header_7:last-child div p{
+    display: inline-block;
+    color: white;
+    background-color: chartreuse;
+    margin-left: -50px;
+}
+
+.header_7:first-child{
+    margin-left: 5%;
+}
+.header_7:first-child div{
+    width: 80px;
+    margin-top: -40px;
+}
+.header_7:first-child div p{
+    width: 80px;
+    display: inline-block;
+    color: white;
+    background-color: chartreuse;
+    margin-left: 50px;
+}
+
+.header_8{
+    width: 100%;
+    height: 7vh;
+    bottom: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header_8 input{
+    width: 200px;
+    height: 30px;
+    margin-left: 30%;
+    border: 1px solid #eee;
+}
+.header_8 button{
+    width: 50px;
+    height: 30px;
+    margin-right: 20px;
+    border: none;
+    background-color: white;
+    color: green;
+    font-size: larger;
+}

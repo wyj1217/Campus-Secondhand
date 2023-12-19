@@ -91,10 +91,10 @@
                 margin-top: 12px;
                 li{
                     margin-top: 12px;
-                    height: 75px;
+                    // height: 75px;
                     display: flex;
                     .ul1-info{
-                        margin-left: 12px;
+                        margin-left: 15px;
                         .ul1-info-text{
                             font-size: 16px;
                             font-weight: bold;
@@ -103,7 +103,7 @@
                         .price{
                             color: #FF8800;
                             font-size: 16px;
-                            margin-top: 5px;
+                            margin-top: -10px;
                         }
                     }
                     img{
@@ -111,6 +111,7 @@
                         height: 65px;
                     }
                     .edit_delete{
+                        margin-top: -15px;
                         display: flex;
                         align-items: center;
                         // margin-top: 5px;
@@ -148,7 +149,7 @@
                     height: 75px;
                     display: flex;
                     .ul1-info{
-                        margin-left: 12px;
+                        margin-left: 15px;
                         .ul1-info-text{
                             font-size: 16px;
                             font-weight: bold;
@@ -157,7 +158,8 @@
                         .price{
                             color: #FF8800;
                             font-size: 16px;
-                            margin-top: 5px;
+                            margin-top: -10px;
+                            // margin-top: 5px;
                         }
                     }
                     img{
@@ -166,6 +168,7 @@
                     }
                     .edit_delete{
                         display: flex;
+                        margin-top: -15px;
                         align-items: center;
                         // margin-top: 5px;
                         .edit_div{
