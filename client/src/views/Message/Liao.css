@@ -7,8 +7,11 @@
     margin-left: 80%;
 }
 .header_7:last-child div{
-    width: 70px;
+    width: 55px;
     margin-top: -40px;
+    border-radius: 10px;
+    padding: 10px;
+    
 }
 .header_7:last-child div p{
     display: inline-block;
@@ -16,17 +19,22 @@
     width: 100px;
     height: 40px;
     background-color: chartreuse;
-    margin-left: -100px;
+    margin-left: -120px;
     font-size: 20px;
     word-break: break-all;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .header_7:first-child{
     margin-left: 5%;
 }
 .header_7:first-child div{
-    width: 70px;
+    width: 55px;
     margin-top: -40px;
+    padding: 10px;
+    text-align: center;
+    
 }
 .header_7:first-child div p{
     display: inline-block;
@@ -34,9 +42,10 @@
     width: 100px;
     height: 40px;
     background-color: chartreuse;
-    margin-left: 50px;
+    margin-left: 40px;
     font-size: 20px;
     word-break: break-all;
+    border-radius: 10px;
 }
 
 .header_8{
