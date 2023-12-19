@@ -5,7 +5,6 @@ const path=require('path')
 var talkroomSchema = mongoose.Schema({
     username: String,
     info: String,
-    roomid: String,
 });
 
 var usersSchema = mongoose.Schema({
