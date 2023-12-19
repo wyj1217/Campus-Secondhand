@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
 export default function Message() {
   let [list, setlist] = useState([])
   let [talk, settalk] = useState([])
-  let [len] = useState(talk.length + 1)
   let navi = useNavigate()
   const getuse = async () => {
     let { data } = await axios.get('http://localhost:3000/lyl/getusers')
@@ -17,7 +16,7 @@ export default function Message() {
     setlist(data.data)
   }
   const gettalk = async () => {
-    let { data } = await axios.get('http://localhost:3000/lyl/gettalk')
+    let { data } = await axios.get('http://localhost:3000/lyl/getta')
     settalk(data.data)
   }
   useEffect(() => {
@@ -25,7 +24,6 @@ export default function Message() {
     gettalk()
   }, [])
   const tiao = async (item) => {
-    console.log(item);
     let msg = {
       username: item.username,
       password: item.password

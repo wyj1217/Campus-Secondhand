@@ -53,17 +53,12 @@ var io = new Server(server, {
 
 io.on('connection', (socket) => {
     console.log('接收到客户端连接请求',);
-
-
     //聊天功能
-    let nowroom = ''
     socket.on('chatMessage', async (msg) => {
         console.log(msg);
         console.log('互相发送信息');
         await talkroomModel.create({ username: msg.username, info: msg.info })
-        let smsg = { id: Date.now(), username: msg.username, info: msg.info }
-        io.to(msg.roomid).emit('message', { data: smsg })
-
+        io.emit('message')
     });
 
 
