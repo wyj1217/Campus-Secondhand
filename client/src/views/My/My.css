@@ -18,10 +18,10 @@
     padding: 27px 17px 18px 18px;
 }
 .img img{
-    width: 66px;
-    height: 66px;
+    /* width: 66px;
+    height: 66px; */
     
-    border-radius: 72px;
+    /* border-radius: 72px; */
     background-color: rgba(255,255,255,1);
 }
 .name{
