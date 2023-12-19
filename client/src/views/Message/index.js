@@ -42,16 +42,12 @@ export default function Message() {
       <div className='header_3'>
         <Tabs>
           <Tabs.Tab title='订单消息' key='a'>
-
           </Tabs.Tab>
           <Tabs.Tab title='互动消息' key='b'>
-           
           </Tabs.Tab>
           <Tabs.Tab title='宝库消息' key='c'>
-            
           </Tabs.Tab>
           <Tabs.Tab title='平台消息' key='d'>
-            
           </Tabs.Tab>
         </Tabs>
       </div>
