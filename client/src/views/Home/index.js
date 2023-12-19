@@ -31,7 +31,7 @@ export default function Home() {
         const {data}=await axios.get('/wyj/goods')
         data.forEach(item=>{
             item.children.forEach(item2=>{
-                item2.img='data:image/png;base64,'+item2.img
+                
                 item2.headImg='data:image/png;base64,'+item2.headImg
             })
         })

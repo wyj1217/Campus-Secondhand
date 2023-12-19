@@ -23,7 +23,6 @@ router.get('/gettalk',async (req,res)=>{
 router.post('/login', async (req, res, next) => {
   let data = req.body
   let dat = await usersmodel.findOne(data)
-
   if (dat) {
     res.send({
       code: 200,

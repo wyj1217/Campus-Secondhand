@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import './Message.css'
 import { Tabs } from 'antd-mobile'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Message() {
   let [list, setlist] = useState([])
-  let [talk,settalk]=useState([])
-  let navi=useNavigate()
+  let [talk, settalk] = useState([])
+  let [len] = useState(talk.length + 1)
+  let navi = useNavigate()
   const getuse = async () => {
     let { data } = await axios.get('http://localhost:3000/lyl/getusers')
     data.data.forEach(item => {
@@ -17,13 +18,24 @@ export default function Message() {
   }
   const gettalk = async () => {
     let { data } = await axios.get('http://localhost:3000/lyl/gettalk')
-    console.log(data,'111111');
     settalk(data.data)
   }
   useEffect(() => {
     getuse()
     gettalk()
   }, [])
+  const tiao = async (item) => {
+    console.log(item);
+    let msg = {
+      username: item.username,
+      password: item.password
+    }
+    let { data } = await axios.post('http://localhost:3000/lyl/login', msg)
+    if (data.code == 200) {
+      let username = item.username
+      navi('/liao', { state: { username } })
+    }
+  }
   return (
     <div className='header_1'>
       <div className='header_2'>
@@ -35,23 +47,39 @@ export default function Message() {
 
           </Tabs.Tab>
           <Tabs.Tab title='互动消息' key='b'>
-            西红柿
+           
           </Tabs.Tab>
           <Tabs.Tab title='宝库消息' key='c'>
-            蚂蚁
+            
           </Tabs.Tab>
           <Tabs.Tab title='平台消息' key='d'>
-            蚂蚁
+            
           </Tabs.Tab>
         </Tabs>
       </div>
       <div className='header_4'>
         {list.map((item, index) => {
           return (
-            <div className='header_5' key={item._id} onClick={()=>navi('/liao',{state:{item}})}>
+            <div className='header_5' key={item._id} onClick={() => tiao(item)}>
               <p><img src={item.img} /></p>
               <p>{item.username}</p>
-              <div>woshi</div>
+              <div>
+                {talk.slice(-1).map((item1, index) => {
+                  if (item.username == item1.username) {
+                    return (
+                      <div key={index}>
+                        {item1.info}
+                      </div>
+                    )
+                  } else {
+                    return (
+                      <div key={index}>
+                        {item1.username}:{item1.info}
+                      </div>
+                    )
+                  }
+                })}
+              </div>
             </div>
           )
         })}
