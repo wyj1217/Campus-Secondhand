@@ -21,6 +21,7 @@ import Detail from "../views/Home/Good/Detail";
 import HotTopic from "../views/Home/HotTopic";
 import TopicDetail from "../views/Home/HotTopic/TopicDetail";
 import MyOrder from "../views/Home/ToDoorRecycling/MyOrder";
+import Liao from "../views/Message/Liao";
 
 export default createBrowserRouter([
   {
@@ -43,10 +44,15 @@ export default createBrowserRouter([
       {
         path: "/message",
         element: <Message />,
+        
       },
       {
         path: "/my",
         element: <My />,
+      },
+      {
+        path: "/liao",
+        element: < Liao/>,
       },
     ],
   },
