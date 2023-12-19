@@ -146,7 +146,6 @@ export default createBrowserRouter([
     element: <Shoucang />
   },
   {
-<<<<<<< HEAD
     path:"/taren",
     element:<Taren />
   },
@@ -157,9 +156,5 @@ export default createBrowserRouter([
   {
     path:"/touxiang",
     element:<Touxiang />
-=======
-    path: "/taren",
-    element: <Taren />
->>>>>>> f04b2d1450ee6a662f937f499447c69ec4fb1e30
   }
 ]);
