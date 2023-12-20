@@ -65,18 +65,20 @@ const Liao = () => {
           setlen(len+5)
         }}
       >
-        <List style={{ minHeight: '100vh' }}>
+        <List style={{ minHeight: '90vh' }}>
           {list.slice(-len).map((item, index) => {
             return (
               <div key={index} className={item.username == username ? 'header_7' : 'header_10'}>
                 <img src={item.img} />
                 <span className='header_9'>{item.info}</span>
+                
               </div>
             )
           })}
+          <div id='mao'></div>
         </List>
       </PullToRefresh>
-      <div id='mao'></div>
+      
     </div>
     <div className='header_8'>
       <p>
