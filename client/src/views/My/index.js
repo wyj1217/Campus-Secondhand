@@ -1,10 +1,25 @@
 import React, { useState } from 'react'
 import "./my.scss"
 import {useNavigate} from "react-router-dom"
-import { Popup, Cell } from 'react-vant' 
+import {Popup} from 'react-vant' 
+import { Calendar, theme } from 'antd'
+import moment from 'moment';
 export default function My() {
   let nav = useNavigate()
   const [visible, setVisible] = useState(false)
+  const onPanelChange = (value, mode) => {
+    console.log(value.format('YYYY-MM-DD'), mode);
+  };
+  const { token } = theme.useToken();
+  const wrapperStyle = {
+    width: 300,
+    border: `1px solid ${token.colorBorderSecondary}`,
+    borderRadius: token.borderRadiusLG,
+  };
+
+  const disabledDate = (current) => {
+    return current && current < moment().subtract(1, 'days').endOf('day');
+ }
   return (
     <div>
       <div className='head'>
@@ -48,9 +63,11 @@ export default function My() {
       <div className='qd' isLink onClick={() => setVisible(true)}>
         <p>每日签到，领福利</p>
         <Popup visible={visible} onClose={() => setVisible(false)}>
-          <div>
-            
-          </div>
+        <div style={wrapperStyle} >
+          <Calendar fullscreen={false} onPanelChange={onPanelChange} 
+          // locale={zhCN}
+          disabledDate={disabledDate}/>
+        </div>
         </Popup>
       </div>
       <div className='dd'>

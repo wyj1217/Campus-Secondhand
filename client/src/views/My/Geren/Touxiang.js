@@ -6,63 +6,67 @@ import { Popup, Cell,Uploader ,Button ,Toast  } from 'react-vant'
 import Webcam from "react-webcam"
 import "./Touxiang.scss"
 export default function Touxiang() {
-    
+    const [show,setShow] = useState(true)
+    const [Istrue,setIstrue] = useState(true)
     const [visible, setVisible] = useState(false)
     let nav =  useNavigate()
     const webcamRef = useRef(null);
     const captureImage = () => {
         const imageSrc = webcamRef.current.getScreenshot();
-        console.log(imageSrc);
+        axios.post('http://localhost:3000/jfq/toux',{path:imageSrc})
         // 将图像数据发送到服务器
-        // uploadPic(imageSrc);
+        uploadPic(imageSrc);
     };
      
-    // //将base64格式的图片转换成formdata格式，并上传到后台并获取本地图像
-    // const uploadPic = async (base64String) => {
-    //     // 下面将要把 base64 转换成formdata
-    //     // 这里对base64串进行操作，去掉url头，并转换为byte
-    //     let bytes = window.atob(base64String.split(',')[1]);
-    //     let array = [];
-    //     for (let i = 0; i < bytes.length; i++) {
-    //       array.push(bytes.charCodeAt(i));
-    //     }
-    //     let blob = new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
-    //     // 生成FormData对象
-    //     let fd = new FormData();
-    //     // 注：此处 file 应和后台接收参数匹配
-    //     fd.append('file', blob, Date.now() + '.jpg');
-    //     let config = {
-    //       headers: { 'Content-Type': 'multipart/form-data' },
-    //     };
-    //     const resp = await axios.post('http://localhost:3000/uploadImg', fd,config)
-    //     let img = resp.data.path
-    //     let info = { id: user._id, img }
-    //     let { data } = await axios.post('http://localhost:3000/eduserimg', info)
-    //     if (data.code === 200) {
-    //       Toast.success(data.msg)
-    //       localStorage.setItem('user', JSON.stringify(data.newuser))
-    //       setIstrue(false)
-    //       setShow(false)
-    //     }
-    //   };
+    //将base64格式的图片转换成formdata格式，并上传到后台并获取本地图像
+    const uploadPic = async (base64String) => {
+        // 下面将要把 base64 转换成formdata
+        // 这里对base64串进行操作，去掉url头，并转换为byte
+        let bytes = window.atob(base64String.split(',')[1]);
+        let array = [];
+        for (let i = 0; i < bytes.length; i++) {
+          array.push(bytes.charCodeAt(i));
+        }
+        let blob = new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
+        // 生成FormData对象
+        let fd = new FormData();
+        // 注：此处 file 应和后台接收参数匹配
+        fd.append('file', blob, Date.now() + '.jpg');
+        let config = {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        };
+        const resp = await axios.post('http://localhost:3000/jfq/uploadImg', fd,config)
+        let img = resp.data.path
+        let info = {  img }
+        let { data } = await axios.post('http://localhost:3000/jfq/eduserimg', info)
+        if (data.code === 200) {
+          Toast.success(data.msg)
+          localStorage.setItem('user', JSON.stringify(data.newuser))
+          setIstrue(false)
+          setShow(false)
+        }
+      };
 
-    // const upload = async (file) => {
-    //     const body = new FormData()
-    //     body.append('file', file)
-    //     // 将图片传递给后端进行存储
-    //     const resp = await axios.post('http://localhost:3000/uploadImg', body)
-    //     let img = resp.data.path
-    //     let info = { id: user._id, img }
-    //     // 将存储的图片获取通过当前用户信息，确定用户，更改头像
-    //     let { data } = await axios.post('http://localhost:3000/eduserimg', info)
-    //     if (data.code === 200) {
-    //       Toast.success(data.msg)
-    //       // 替换已存储的用户信息
-    //       localStorage.setItem('user', JSON.stringify(data.newuser))
-    //       setShow(false)
-    //     }
-    //     return false
-    //   }
+      const upload = async (file) => {
+        const body = new FormData()
+        body.append('file', file)
+        // 将图片传递给后端进行存储
+        const resp = await axios.post('http://localhost:3000/jfq/uploadImg', body)
+        let img = resp.data.path
+        let info = {  img }
+        // 将存储的图片获取通过当前用户信息，确定用户，更改头像
+        let { data } = await axios.post('http://localhost:3000/jfq/eduserimg', info)
+        if (data.code === 200) {
+          Toast.success(data.msg)
+          // 替换已存储的用户信息
+          localStorage.setItem('user', JSON.stringify(data.newuser))
+          setShow(false)
+        }
+        return false
+      }
+
+     
+    
   return (
     <div>
         <div className='header'>
@@ -101,3 +105,43 @@ export default function Touxiang() {
     </div>
   )
 }
+
+
+
+
+
+
+
+
+     
+    //将base64格式的图片转换成formdata格式，并上传到后台并获取本地图像
+    // const uploadPic = async (base64String) => {
+    //     // 下面将要把 base64 转换成formdata
+    //     // 这里对base64串进行操作，去掉url头，并转换为byte
+    //     console.log(base64String.split(",")[1]);
+    //     // let bytes = window.atob(base64String.split(',')[1]);
+    //     console.log(bytes,"jfq");
+    //     let array = [];
+    //     for (let i = 0; i < bytes.length; i++) {
+    //       array.push(bytes.charCodeAt(i));
+    //     }
+    //     let blob = new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
+    //     // 生成FormData对象
+    //     let fd = new FormData();
+    //     // 注：此处 file 应和后台接收参数匹配
+    //     fd.append('file', blob, Date.now() + '.jpg');
+    //     let config = {
+    //       headers: { 'Content-Type': 'multipart/form-data' },
+    //     };
+    //     const resp = await axios.post('http://localhost:3000/jfq/toux', fd,config)
+    //     let img = resp.data.path
+    //     console.log(img);
+        // let info = { id: user._id, img }
+        // let { data } = await axios.post('http://localhost:3000/eduserimg', info)
+        // if (data.code === 200) {
+        //   Toast.success(data.msg)
+        //   localStorage.setItem('user', JSON.stringify(data.newuser))
+        //   setIstrue(false)
+        //   setShow(false)
+        // }
+    //   };

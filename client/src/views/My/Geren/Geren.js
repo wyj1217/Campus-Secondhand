@@ -43,6 +43,10 @@ export default function Geren() {
               <p>更多信息</p>
               <Arrow style={{float:"right",paddingTop:"29px",width:"20px",paddingLeft:"72%"}}  />
             </div>
+            <div className='gerentwo'>
+              <p>修改密码</p>
+              <Arrow style={{float:"right",paddingTop:"29px",width:"20px",paddingLeft:"72%"}}  />
+            </div>
         </div>
 
     </div>
