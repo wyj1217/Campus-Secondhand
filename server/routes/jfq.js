@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
     res.send()
 })
 
+// router.post('/toux',async (req,res)=>{
+//   res.send({})
+// })
+
 router.post('/uploadImg', async (req, res) => {
     // 创建multiparty的form表单对象
     let form = new multiparty.Form()
