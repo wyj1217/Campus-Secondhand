@@ -1,16 +1,18 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter,Navigate } from "react-router-dom";
 import App from "../App";
 import GuidePage from "../views/Guide-Page";
 
 import Home from "../views/Home";
 import TreasureHouse from "../views/TreasureHouse";
 import Publish from "../views/Publish";
-import Book from '../views/Publish/Book'
+import Book from '../views/Publish/Book/index'
 import Unused from '../views/Publish/Unused'
 import Recycle from '../views/Publish/Recycle'
 import Message from "../views/Message";
 import My from "../views/My";
 import Taren from "../views/My/Taren/Taren"
+import Touxiang from "../views/My/Geren/Touxiang"
+import Geren from "../views/My/Geren/Geren"
 import Goumai from "../views/My/Dingdan/Goumai"
 import Fabu from "../views/My/Dingdan/Fabu"
 import Shoucang from "../views/My/Dingdan/Shoucang"
@@ -30,6 +32,7 @@ import Tresdetail from "../views/TreasureHouse/Tresdetail";
 import Trfabu from "../views/TreasureHouse/Trfabu";
 
 
+import Liao from "../views/Message/Liao";
 
 export default createBrowserRouter([
   {
@@ -38,7 +41,7 @@ export default createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <GuidePage />,
+        element: <Navigate to={'/home'} />,
       },
       {
         path: "/home",
@@ -52,12 +55,18 @@ export default createBrowserRouter([
       {
         path: "/message",
         element: <Message />,
+
       },
       {
         path: "/my",
         element: <My />,
       },
     ],
+
+  },
+  {
+    path: "/liao",
+    element: < Liao />,
   },
   //发布
   {
@@ -82,63 +91,63 @@ export default createBrowserRouter([
     element: <Search />,
   },
   {
-    path:'/searchResult',
-    element:<SearchResult />
+    path: '/searchResult',
+    element: <SearchResult />
   },
   {
     path: "/InverstmentAndWithdrawal",
     element: <InverstmentAndWithdrawal />,
   },
   {
-    path:'/toDoorRecycling',
-    element:<ToDoorRecycling />
+    path: '/toDoorRecycling',
+    element: <ToDoorRecycling />
   },
   {
-    path:'/nowRecycling',
-    element:<NowRecycling />
+    path: '/nowRecycling',
+    element: <NowRecycling />
   },
   {
-    path:'/myorder',
-    element:<MyOrder />
+    path: '/myorder',
+    element: <MyOrder />
   },
   {
-    path:'/youzhi',
-    element:<Youzhi />
+    path: '/youzhi',
+    element: <Youzhi />
   },
   {
-    path:'/good',
-    element:<Good />
+    path: '/good',
+    element: <Good />
   },
   {
-    path:'/detail',
-    element:<Detail />
+    path: '/detail',
+    element: <Detail />
   },
   //热门话题
   {
-    path:'/hotTopic',
-    element:<HotTopic />
+    path: '/hotTopic',
+    element: <HotTopic />
   },
   //话题详情
   {
-    path:'/topicDetail',
-    element:<TopicDetail />
+    path: '/topicDetail',
+    element: <TopicDetail />
   },
   // 订单
   {
-    path:"/goumai",
-    element:<Goumai />
+    path: "/goumai",
+    element: <Goumai />
   },
   {
-    path:"/maichu",
-    element:<Maichu />
+    path: "/maichu",
+    element: <Maichu />
   },
   {
-    path:"/fabu",
-    element:<Fabu />
+    path: "/fabu",
+    element: <Fabu />
   },
   {
-    path:"/shoucang",
-    element:<Shoucang />
+    path: "/shoucang",
+    element: <Shoucang />
   },
   {
     path:"/taren",
@@ -151,5 +160,13 @@ export default createBrowserRouter([
   {
     path:"/tresdetail",
     element:<Tresdetail />
+  },
+  {
+    path:"/geren",
+    element:<Geren />
+  },
+  {
+    path:"/touxiang",
+    element:<Touxiang />
   }
 ]);

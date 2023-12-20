@@ -1,0 +1,26 @@
+
+.unused{
+  margin-top: 10px;
+  position: relative;
+}
+
+.unused-btn{
+  position: absolute;
+  top: 730px;
+  left: 30px;
+  width: 316px;
+  height: 46px;
+  border-radius: 10px;
+  background-color: #44b15d;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  line-height: 46px;
+}
+
+.collapse{
+  // display: inline-block;
+  .rv-cell__title rv-field__label rv-field__label--left{
+    display: inline;
+  }
+}

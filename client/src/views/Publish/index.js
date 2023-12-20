@@ -48,7 +48,7 @@ export default function Publish() {
           </div>
           <div className="absolute-img2">
             <img src={Absoluteimg2} alt="" onClick={gounused} />
-            <span>发送闲置</span>
+            <span>发布闲置</span>
           </div>
           <div className="absolute-img3">
             <img src={Absoluteimg3} alt="" onClick={gorecycle} />
