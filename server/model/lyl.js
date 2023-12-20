@@ -13,7 +13,7 @@ var usersSchema = mongoose.Schema({
     img:String
 });
 var talkroomModel = mongoose.model('talkroom', talkroomSchema);
-var usersmodel = mongoose.model('users', usersSchema);
+var usersmodel = mongoose.model('liaot', usersSchema);
 // const user6=fs.readFileSync(path.join(__dirname,'../','./wyj-imgs/user6.png'));
 // const user6Base64=user6.toString('base64');
 

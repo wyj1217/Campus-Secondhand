@@ -16,6 +16,8 @@ export default function Recycle() {
         <NavBar  onBack={goBack}>
           回收分类
         </NavBar>
+
+        
       </div>
     </div>
   );
