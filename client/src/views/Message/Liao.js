@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './Liao.css'
 import { io } from "socket.io-client";
+import { PullToRefresh, List } from 'antd-mobile'
+import { sleep } from 'antd-mobile/es/utils/sleep'
 
 const Liao = () => {
   let location = useLocation()
@@ -12,6 +14,7 @@ const Liao = () => {
   let [list, setlist] = useState([])
   let navi = useNavigate()
   let [nowtext, setnowtext] = useState('')
+  let [len,setlen]=useState(8)
   const back = () => {
     navi('/message')
   }
@@ -55,14 +58,24 @@ const Liao = () => {
     </div>
     <div className='header_12'></div>
     <div className='header_6'>
-      {list.map((item, index) => {
-        return (
-          <div key={index} className={item.username == username ? 'header_7' : 'header_10'}>
-            <img src={item.img} />
-            <span className='header_9'>{item.info}</span>
-          </div>
-        )
-      })}
+
+      <PullToRefresh
+        onRefresh={async () => {
+          await sleep(1000)
+          setlen(len+5)
+        }}
+      >
+        <List style={{ minHeight: '100vh' }}>
+          {list.slice(-len).map((item, index) => {
+            return (
+              <div key={index} className={item.username == username ? 'header_7' : 'header_10'}>
+                <img src={item.img} />
+                <span className='header_9'>{item.info}</span>
+              </div>
+            )
+          })}
+        </List>
+      </PullToRefresh>
       <div id='mao'></div>
     </div>
     <div className='header_8'>
