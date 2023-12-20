@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
 export default function Message() {
   let [list, setlist] = useState([])
   let [talk, settalk] = useState([])
-  let [len] = useState(talk.length + 1)
   let navi = useNavigate()
   const getuse = async () => {
     let { data } = await axios.get('http://localhost:3000/lyl/getusers')
@@ -17,7 +16,7 @@ export default function Message() {
     setlist(data.data)
   }
   const gettalk = async () => {
-    let { data } = await axios.get('http://localhost:3000/lyl/gettalk')
+    let { data } = await axios.get('http://localhost:3000/lyl/getta')
     settalk(data.data)
   }
   useEffect(() => {
@@ -25,7 +24,6 @@ export default function Message() {
     gettalk()
   }, [])
   const tiao = async (item) => {
-    console.log(item);
     let msg = {
       username: item.username,
       password: item.password
@@ -44,16 +42,12 @@ export default function Message() {
       <div className='header_3'>
         <Tabs>
           <Tabs.Tab title='订单消息' key='a'>
-
           </Tabs.Tab>
           <Tabs.Tab title='互动消息' key='b'>
-           
           </Tabs.Tab>
           <Tabs.Tab title='宝库消息' key='c'>
-            
           </Tabs.Tab>
           <Tabs.Tab title='平台消息' key='d'>
-            
           </Tabs.Tab>
         </Tabs>
       </div>

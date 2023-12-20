@@ -10,30 +10,28 @@ const Liao = () => {
   let location = useLocation()
   let { username } = location.state
   let [list, setlist] = useState([])
-  let [talk, settalk] = useState([])
   let navi = useNavigate()
   let [nowtext, setnowtext] = useState('')
-  let talklist = useState([])
-  let [falg,setfalg]=useState(true)
   const back = () => {
     navi('/message')
   }
   const getuse = async () => {
-    let { data } = await axios.get('http://localhost:3000/lyl/getusers')
-    data.data.forEach(item => {
+    let { data } = await axios.get('http://localhost:3000/lyl/gettalk')
+    data.list.forEach(item => {
       item.img = 'data:image/png;base64,' + item.img
     })
-    setlist(data.data)
+    setlist(data.list)
   }
-  const gettalk = async () => {
-    let { data } = await axios.get('http://localhost:3000/lyl/gettalk')
 
-    settalk(data.data)
+  const jiat = () => {
+    document.getElementById('mao').scrollIntoView()
   }
   useEffect(() => {
     getuse()
-    gettalk()
-  }, [falg])
+    setTimeout(() => {
+      jiat()
+    }, 1000);
+  }, [])
 
   const socket = io('http://localhost:3000', {
     autoConnect: true,   // 自动连接     
@@ -45,51 +43,27 @@ const Liao = () => {
       username: username,
     });
     setnowtext('')
-    setfalg(!falg)
   }
   //接收消息
   socket.on('message', function (msg) {
-    talklist.push(msg.data)
+    getuse()
+    jiat()
   });
   return <div>
-    <NavBar onBack={back}>{username}</NavBar>
+    <div className='header_11'>
+      <NavBar onBack={back}>{username}</NavBar>
+    </div>
+    <div className='header_12'></div>
     <div className='header_6'>
       {list.map((item, index) => {
-        if (item.username == username) {
-          return (
-            <div className='header_7' key={item._id}>
-              <p><img src={item.img} /></p>
-              {talk.map((item1, index) => {
-                if (item.username == item1.username) {
-                  return (
-                    <div key={index}>
-                      <p>{item1.info}</p>
-                    </div>
-                  )
-                }
-              })}
-            </div>
-          )
-        }
+        return (
+          <div key={index} className={item.username == username ? 'header_7' : 'header_10'}>
+            <img src={item.img} />
+            <span className='header_9'>{item.info}</span>
+          </div>
+        )
       })}
-      {list.map((item, index) => {
-        if (item.username != username) {
-          return (
-            <div className='header_7' key={item._id}>
-              <p><img src={item.img} /></p>
-              {talk.map((item1, index) => {
-                if (item.username == item1.username) {
-                  return (
-                    <div key={index}>
-                      <p>{item1.info}</p>
-                    </div>
-                  )
-                }
-              })}
-            </div>
-          )
-        }
-      })}
+      <div id='mao'></div>
     </div>
     <div className='header_8'>
       <p>

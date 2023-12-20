@@ -10,11 +10,29 @@ router.get('/getusers', async (req, res, next) => {
   })
 });
 
-router.get('/gettalk',async (req,res)=>{
-  let data=await talkroomModel.find()
+router.get('/getta', async (req, res, next) => {
+  let data = await talkroomModel.find()
   res.send({
     code: 200,
     data: data
+  })
+});
+
+
+router.get('/gettalk',async (req,res)=>{
+  let data=await talkroomModel.find()
+  let date=await usersmodel.find()
+  let list=[]
+  data.forEach(item=>{
+    date.forEach(item1=>{
+      if(item.username == item1.username){
+        list.push({'info':item.info,'username':item.username,'img':item1.img})
+      }
+    })
+  })
+  res.send({
+    code: 200,
+    list
   })
 })
 

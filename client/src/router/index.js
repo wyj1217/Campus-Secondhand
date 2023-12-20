@@ -11,6 +11,8 @@ import Recycle from '../views/Publish/Recycle'
 import Message from "../views/Message";
 import My from "../views/My";
 import Taren from "../views/My/Taren/Taren"
+import Touxiang from "../views/My/Geren/Touxiang"
+import Geren from "../views/My/Geren/Geren"
 import Goumai from "../views/My/Dingdan/Goumai"
 import Fabu from "../views/My/Dingdan/Fabu"
 import Shoucang from "../views/My/Dingdan/Shoucang"
@@ -49,17 +51,18 @@ export default createBrowserRouter([
       {
         path: "/message",
         element: <Message />,
-        
+
       },
       {
         path: "/my",
         element: <My />,
       },
-      {
-        path: "/liao",
-        element: < Liao/>,
-      },
     ],
+
+  },
+  {
+    path: "/liao",
+    element: < Liao />,
   },
   //发布
   {
@@ -84,66 +87,74 @@ export default createBrowserRouter([
     element: <Search />,
   },
   {
-    path:'/searchResult',
-    element:<SearchResult />
+    path: '/searchResult',
+    element: <SearchResult />
   },
   {
     path: "/InverstmentAndWithdrawal",
     element: <InverstmentAndWithdrawal />,
   },
   {
-    path:'/toDoorRecycling',
-    element:<ToDoorRecycling />
+    path: '/toDoorRecycling',
+    element: <ToDoorRecycling />
   },
   {
-    path:'/nowRecycling',
-    element:<NowRecycling />
+    path: '/nowRecycling',
+    element: <NowRecycling />
   },
   {
-    path:'/myorder',
-    element:<MyOrder />
+    path: '/myorder',
+    element: <MyOrder />
   },
   {
-    path:'/youzhi',
-    element:<Youzhi />
+    path: '/youzhi',
+    element: <Youzhi />
   },
   {
-    path:'/good',
-    element:<Good />
+    path: '/good',
+    element: <Good />
   },
   {
-    path:'/detail',
-    element:<Detail />
+    path: '/detail',
+    element: <Detail />
   },
   //热门话题
   {
-    path:'/hotTopic',
-    element:<HotTopic />
+    path: '/hotTopic',
+    element: <HotTopic />
   },
   //话题详情
   {
-    path:'/topicDetail',
-    element:<TopicDetail />
+    path: '/topicDetail',
+    element: <TopicDetail />
   },
   // 订单
   {
-    path:"/goumai",
-    element:<Goumai />
+    path: "/goumai",
+    element: <Goumai />
   },
   {
-    path:"/maichu",
-    element:<Maichu />
+    path: "/maichu",
+    element: <Maichu />
   },
   {
-    path:"/fabu",
-    element:<Fabu />
+    path: "/fabu",
+    element: <Fabu />
   },
   {
-    path:"/shoucang",
-    element:<Shoucang />
+    path: "/shoucang",
+    element: <Shoucang />
   },
   {
     path:"/taren",
     element:<Taren />
+  },
+  {
+    path:"/geren",
+    element:<Geren />
+  },
+  {
+    path:"/touxiang",
+    element:<Touxiang />
   }
 ]);
