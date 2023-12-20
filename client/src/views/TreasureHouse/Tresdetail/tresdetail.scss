@@ -1,0 +1,35 @@
+.tsdetail{
+    .tsHead{
+        display: flex;
+        margin-left: 4%;
+        margin-top: 8%;
+        p{
+            color: rgb(0, 0, 0);
+        }
+        .toux{
+            width: 25%;
+        }
+        .toumid{
+            width: 50%;
+        }
+        .touend{
+            width: 20%;
+        }
+    }
+    .back{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+            z-index: -1;
+            width: 100%;
+            filter:blur(6px);
+        background-repeat: no-repeat;
+    }
+    .tsbody{
+        height: 100%;
+        width: 98%;
+        background-color: white;
+        margin:2%;
+        border-radius: 9px;
+    }
+}
