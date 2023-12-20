@@ -1,10 +1,12 @@
-const mongoose = require("./db");
+const mongoose = require("../db/db");
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
   title: String,
-  img: Array,
+  content: String,
+  img: String,
   price: Number,
+  headimg: String,
 });
 
 // 导出模型

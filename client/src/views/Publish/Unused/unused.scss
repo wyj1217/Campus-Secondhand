@@ -17,3 +17,10 @@
   text-align: center;
   line-height: 46px;
 }
+
+.collapse{
+  // display: inline-block;
+  .rv-cell__title rv-field__label rv-field__label--left{
+    display: inline;
+  }
+}

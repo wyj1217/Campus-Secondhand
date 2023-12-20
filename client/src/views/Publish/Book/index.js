@@ -5,23 +5,23 @@ import { useNavigate } from "react-router-dom";
 import { Ellipsis } from "@react-vant/icons";
 import { ImageUploader, Space, Toast, Dialog, Collapse } from "antd-mobile";
 import { demoSrc, mockUpload } from "./utils";
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { message, Upload } from 'antd';
-import axios from "axios";
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { message, Upload } from "antd";
+import axios from "../../../utils";
 
 const getBase64 = (img, callback) => {
   const reader = new FileReader();
-  reader.addEventListener('load', () => callback(reader.result));
+  reader.addEventListener("load", () => callback(reader.result));
   reader.readAsDataURL(img);
 };
 const beforeUpload = (file) => {
-  const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
   if (!isJpgOrPng) {
-    message.error('You can only upload JPG/PNG file!');
+    message.error("You can only upload JPG/PNG file!");
   }
   const isLt2M = file.size / 1024 / 1024 < 2;
   if (!isLt2M) {
-    message.error('Image must smaller than 2MB!');
+    message.error("Image must smaller than 2MB!");
   }
   return isJpgOrPng && isLt2M;
 };
@@ -60,36 +60,53 @@ export default function Book() {
   const [showCloseIcon, setShowCloseIcon] = useState(false);
 
   const [title, setTitle] = useState("");
-  const [image, setImage] = useState(null);
+  const [content, setContent] = useState("");
   const [price, setPrice] = useState("");
 
   const handleSubmit = async () => {
-    const formData = new FormData();
-    console.log(formData);
+    // const formData = new FormData();
+    // console.log(formData);
     // formData.append('title', title);
     // formData.append('image', image);
     // formData.append('price', price);
-    console.log(formData);
+    // console.log(formData);
 
+    // console.log(title,price,imageUrl);
+    const data = {
+      title,
+      content,
+      price,
+      imageUrl,
+      // headerImg,
+    };
+    await axios.post("/hy/addbook", data);
     try {
-      const response = await axios.post("/hy/addbook", formData);
+      const response = await axios.post("/hy/addbook");
       console.log(response.data);
+      // alert('发布成功')
     } catch (error) {
       console.error(error);
     }
+
+    
+    Toast.show({
+      icon: "success",
+      content: "发布成功",
+    });
   };
 
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
   const handleChange = (info) => {
-    if (info.file.status === 'uploading') {
+    if (info.file.status === "uploading") {
       setLoading(true);
       return;
     }
-    if (info.file.status === 'done') {
+    if (info.file.status === "done") {
       // Get this url from response in real world.
       getBase64(info.file.originFileObj, (url) => {
         setLoading(false);
+        console.log(url);
         setImageUrl(url);
       });
     }
@@ -139,7 +156,12 @@ export default function Book() {
             />
           </h3>
           <div className="p">
-            <textarea placeholder="速度加快恢复精神的粉红色的反抗撒旦解放，尽快核实大法师卡德加发士大夫" />
+            <textarea
+              onChange={(e) => setContent(e.target.value)}
+              value={content}
+              placeholder="速度加快恢复精神的粉红色的反抗撒旦解放，
+            尽快核实大法师卡德加发士大夫"
+            />
           </div>
 
           <div className="book-img">
@@ -154,7 +176,7 @@ export default function Book() {
                 listType="picture-card"
                 className="avatar-uploader"
                 showUploadList={false}
-                action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
+                action="http://localhost:3000/hy/upload"
                 beforeUpload={beforeUpload}
                 onChange={handleChange}
               >
@@ -171,20 +193,22 @@ export default function Book() {
                 )}
               </Upload>
             </div>
+            <div className="book-price">
+              价格:{" "}
+              <input
+                type="text"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                placeholder="输入价格"
+              /> 
+            </div>
 
             <div className="collapse">
               <Collapse defaultActiveKey={[]}>
                 <Collapse.Panel key="1" title="书本状况">
                   {mockContents[0]}
                 </Collapse.Panel>
-                <Collapse.Panel key="2" title="价格">
-                  <input
-                    type="text"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    placeholder="价格"
-                  />
-                </Collapse.Panel>
+                {/* <Collapse.Panel key="2" title="价格"></Collapse.Panel> */}
                 <Collapse.Panel key="3" title="书名及ISBN">
                   {mockContents[2]}
                 </Collapse.Panel>

@@ -1,20 +1,73 @@
 var express = require("express");
 var router = express.Router();
 let multiparty = require("multiparty");
-var { goodsModel } = require("../model/wyj");
+var { bookModel } = require("../model/hy")
+// Yes, you need to import ObjectId from mongoose
+const { ObjectId } = require('mongoose').Types;
+var { goodsModel,  } = require("../model/wyj");
+
+const { default: mongoose } = require("mongoose");
 
 router.get("/", function (req, res, next) {
   res.send();
 });
 
+//添加图书
 router.post("/addbook", async function (req, res, next) {
-    console.log(req.body);
-//   const Book =  goodsModel.children(req.body);
-//   const data = await Book.save()
-//   res.send({
-//     msg: "success",
-//     data: data,
-//   });
+  // const Book =  goodsModel.children(req.body);
+  //   const data = await Book.save()
+  //   res.send({
+  //     msg: "success",
+  //     data: data,
+  //   });
+  // const data=await goodsModel.find()
+  // data.forEach(item=>{
+  //   if(item._id=='658036b2c30f0000420005f2'){
+  //     item.children.push({price:req.body.price,img:req.body.imageUrl})
+  //     console.log(item.children);
+  //   }
+
+  // })
+  // console.log(data,'添加之后');
+
+  console.log(req.body);
+
+  await goodsModel.updateOne(
+    { _id: new ObjectId('658036b2c30f0000420005f2') },
+    {
+      $push: {
+        children: {
+          title: req.body.title,
+          content:req.body.content,
+          price: req.body.price,
+          img: req.body.imageUrl,
+          headimg:req.body.headimg,
+        },
+      },
+    },
+  );
+
+  // const book = new bookModel(req.body);
+  // const data = await book.save()
+  // res.send({data})
+  await bookModel.create(
+    // { _id: _id },
+    
+      {
+        
+          title: req.body.title,
+          content:req.body.content,
+          price: req.body.price,
+          img: req.body.imageUrl,
+          headimg:req.body.headimg,
+      },
+    
+  );
+   
+  res.send({
+    code: 200,
+    msg: "发布成功",
+  });
 });
 
 router.post("/upload", (req, res) => {
@@ -22,8 +75,10 @@ router.post("/upload", (req, res) => {
   form.uploadDir = "upload";
   form.parse(req, function (err, fields, files) {
     console.log(files);
-    res.send({ path: files.avatar[0].path });
+    res.send({ path: "http://localhost:3000/" + files.avatar[0].path });
   });
 });
+
+//添加闲置
 
 module.exports = router;
