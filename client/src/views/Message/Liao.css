@@ -16,6 +16,8 @@
     border-radius: 10px;
     font-weight: 800;
     font-size: 16px;
+    padding-top: 10px;
+    box-sizing: border-box;
 }
 .header_10{
     width: 100%;
@@ -33,6 +35,8 @@
     border-radius: 10px;
     font-weight: 800;
     font-size: 16px;
+    padding-top: 10px;
+    box-sizing: border-box;
 }
 .header_8 {
     position: fixed;
