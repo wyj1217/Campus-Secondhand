@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
 let multiparty = require("multiparty");
-var { bookModel } = require("../model/hy")
+var { bookModel } = require("../model/hy");
 // Yes, you need to import ObjectId from mongoose
-const { ObjectId } = require('mongoose').Types;
-var { goodsModel,  } = require("../model/wyj");
+const { ObjectId } = require("mongoose").Types;
+var { goodsModel } = require("../model/wyj");
 
 const { default: mongoose } = require("mongoose");
 
@@ -33,37 +33,31 @@ router.post("/addbook", async function (req, res, next) {
   console.log(req.body);
 
   await goodsModel.updateOne(
-    { _id: new ObjectId('658036b2c30f0000420005f2') },
+    { _id: new ObjectId("658036b2c30f0000420005f2") },
     {
       $push: {
         children: {
           title: req.body.title,
-          content:req.body.content,
+          content: req.body.content,
           price: req.body.price,
           img: req.body.imageUrl,
-          headimg:req.body.headimg,
+          headimg: req.body.headimg,
         },
       },
-    },
+    }
   );
 
   // const book = new bookModel(req.body);
   // const data = await book.save()
   // res.send({data})
-  await bookModel.create(
-    // { _id: _id },
-    
-      {
-        
-          title: req.body.title,
-          content:req.body.content,
-          price: req.body.price,
-          img: req.body.imageUrl,
-          headimg:req.body.headimg,
-      },
-    
-  );
-   
+  await bookModel.create({
+    title: req.body.title,
+    content: req.body.content,
+    price: req.body.price,
+    img: req.body.imageUrl,
+    headimg: req.body.headimg,
+  });
+
   res.send({
     code: 200,
     msg: "发布成功",
