@@ -45,7 +45,7 @@ const Liao = () => {
     setnowtext('')
   }
   //接收消息
-  socket.on('message', function (msg) {
+  socket.on('message', function () {
     getuse()
     jiat()
   });
