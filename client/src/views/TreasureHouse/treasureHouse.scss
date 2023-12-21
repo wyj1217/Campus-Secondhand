@@ -2,7 +2,7 @@
     padding:4%;
     background-image: url('./trIMG/dsf1x.png');
     background-repeat: no-repeat;
-    background-size: 100% 130px;
+    background-size: 100% 190px;
     
     .trtop{  
         .adm-tabs-tab{
@@ -12,11 +12,34 @@
     .trcg{
         margin-top:4%;
         width: 97%;
-        height: 80px;
-        
+        height: 120px;
         background-color: white;
         border-radius: 10px;
         box-shadow: 1px 2px 5px rgb(133, 133, 133);
+        .changguang{
+            padding-top: 2%;
+            padding-left:4%;
+            font-size: 15px;
+        }
+        .added{
+            display: flex;
+            padding-left: 3%;
+            .xie{
+                flex-grow: 1;
+                justify-content: center;
+                .img-hs{
+                    margin-left: 10%;
+                    width: 50px;
+                    height: 50px; 
+                    border-radius: 8px;
+                }
+                .p-hs{
+                    color: rgb(126, 126, 126);
+                }
+            }
+            
+            
+        }
     }
     .trbot{
         
@@ -26,5 +49,17 @@
         box-shadow: 1px 3px 10px rgb(133, 133, 133);
         margin-top: 8%;
         border-radius: 9px;
+        width: 100%;
+        .jiaru{
+            display: flex;
+            justify-content: space-around;
+            
+            .trip0{
+                .img-hs{
+                    width: 50px;
+                    height: 50px; 
+                }
+            }
+        }
     }
 }

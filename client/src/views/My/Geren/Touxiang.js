@@ -13,7 +13,7 @@ export default function Touxiang() {
     const webcamRef = useRef(null);
     const captureImage = () => {
         const imageSrc = webcamRef.current.getScreenshot();
-        axios.post('http://localhost:3000/jfq/toux',{path:imageSrc})
+        
         // 将图像数据发送到服务器
         uploadPic(imageSrc);
     };
