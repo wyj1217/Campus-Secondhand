@@ -1,10 +1,8 @@
 import React from 'react'
 import { ArrowLeft} from '@react-vant/icons';
 import {useNavigate} from "react-router-dom"
-import { Button   } from 'react-vant' 
 import { SystemQRcodeOutline } from 'antd-mobile-icons'
 import { Arrow } from '@react-vant/icons'
-import Webcam from "react-webcam"
 import "./Geren.scss"
 export default function Geren() {
     let nav =  useNavigate()

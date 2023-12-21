@@ -64,6 +64,16 @@ router.post("/addbook", async function (req, res, next) {
   });
 });
 
+router.get("/book",async (req,res)=>{
+  const data = await bookModel.find()
+  res.send(data)
+})
+
+router.post('/delbook',async (req,res)=>{
+  await bookModel.deleteOne({_id:req.body.id})
+  res.send()
+})
+
 router.post("/upload", (req, res) => {
   let form = new multiparty.Form();
   form.uploadDir = "upload";

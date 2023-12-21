@@ -33,7 +33,5 @@ router.post('/eduserimg', async (req, res) => {
     res.send({code:200,msg:'头像修改成功',newuser:newuser[0]})
   });
 
-
-
-
+  
 module.exports = router;

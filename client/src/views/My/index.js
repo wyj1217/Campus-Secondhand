@@ -60,7 +60,7 @@ export default function My() {
           <span>赚入</span>
         </div>
       </div>
-      <div className='qd' isLink onClick={() => setVisible(true)}>
+      <div className='qd'  onClick={() => setVisible(true)}>
         <p>每日签到，领福利</p>
         <Popup visible={visible} onClose={() => setVisible(false)}>
         <div style={wrapperStyle} >

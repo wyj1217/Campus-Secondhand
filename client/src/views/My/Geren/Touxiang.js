@@ -82,7 +82,7 @@ export default function Touxiang() {
                 previewImage={false}
                 accept='image/*'
                 onChange={v => console.log(v)}
-                // upload={upload}
+                upload={upload}
                 className='touxiang1'
             >
                 <button ><PhotoO />相册中选取</button> 
