@@ -1,10 +1,8 @@
 import React from 'react'
 import { ArrowLeft} from '@react-vant/icons';
 import {useNavigate} from "react-router-dom"
-import { Button   } from 'react-vant' 
 import { SystemQRcodeOutline } from 'antd-mobile-icons'
 import { Arrow } from '@react-vant/icons'
-import Webcam from "react-webcam"
 import "./Geren.scss"
 export default function Geren() {
     let nav =  useNavigate()
@@ -41,6 +39,10 @@ export default function Geren() {
             </div>
             <div className='gerentwo'>
               <p>更多信息</p>
+              <Arrow style={{float:"right",paddingTop:"29px",width:"20px",paddingLeft:"72%"}}  />
+            </div>
+            <div className='gerentwo'>
+              <p>修改密码</p>
               <Arrow style={{float:"right",paddingTop:"29px",width:"20px",paddingLeft:"72%"}}  />
             </div>
         </div>

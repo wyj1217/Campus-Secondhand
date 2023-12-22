@@ -62,7 +62,7 @@ export default function Message() {
                   if (item.username == item1.username) {
                     return (
                       <div key={index}>
-                        {item1.info}
+                        <span className='rfv'></span>{item1.info}
                       </div>
                     )
                   } else {
