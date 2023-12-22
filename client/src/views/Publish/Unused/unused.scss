@@ -24,3 +24,15 @@
     display: inline;
   }
 }
+
+.rv-cell__title rv-field__label rv-field__label--left{
+  width: 0;
+}
+
+.used-sort{
+  margin-left: -2px;
+}
+.rv-selector{
+  margin-left: -0px;
+}
+.rv-selector__item{margin-bottom: 4px;}

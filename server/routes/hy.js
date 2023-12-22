@@ -33,7 +33,7 @@ router.post("/addbook", async function (req, res, next) {
   console.log(req.body);
 
   await goodsModel.updateOne(
-    { _id: new ObjectId("658036b2c30f0000420005f2") },
+    { _id: new ObjectId("65824508a688eae5697ba6aa") },
     {
       $push: {
         children: {
@@ -47,9 +47,6 @@ router.post("/addbook", async function (req, res, next) {
     }
   );
 
-  // const book = new bookModel(req.body);
-  // const data = await book.save()
-  // res.send({data})
   await bookModel.create({
     title: req.body.title,
     content: req.body.content,
@@ -57,11 +54,10 @@ router.post("/addbook", async function (req, res, next) {
     img: req.body.imageUrl,
     headimg: req.body.headimg,
   });
-
-  res.send({
-    code: 200,
-    msg: "发布成功",
-  });
+  // res.send({
+  //   code: 200,
+  //   msg: "发布成功",
+  // });
 });
 
 router.post("/upload", (req, res) => {
@@ -74,5 +70,27 @@ router.post("/upload", (req, res) => {
 });
 
 //添加闲置
+router.post("/addused", async function (req, res) {
+  console.log(req.body.goods[0]);
+
+  await goodsModel.updateOne(
+    { _id: new ObjectId(req.body.goods[0]) },
+    {
+      $push: {
+        children: {
+          title: req.body.title,
+          content: req.body.content,
+          price: req.body.price,
+          img: req.body.imageUrl,
+          headimg: req.body.headimg,
+        },
+      },
+    }
+  );
+  // res.send({
+  //   code: 200,
+  //   msg: "发布成功",
+  // });
+});
 
 module.exports = router;

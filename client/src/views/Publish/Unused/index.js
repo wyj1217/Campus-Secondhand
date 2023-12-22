@@ -60,6 +60,16 @@ export default function Book() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [price, setPrice] = useState("");
+  const [goods, setGoods] = useState("");
+
+  const getGoods = async () => {
+    const data = await axios.get("/wyj/goods");
+    
+    sessionStorage.setItem('goods',JSON.stringify(data))
+  }
+  useEffect(() => {
+    getGoods()
+  },[])
 
   const handleSubmit = async () => {
     const data = {
@@ -67,11 +77,12 @@ export default function Book() {
       content,
       price,
       imageUrl,
+      goods
       // headerImg,
     };
-    await axios.post("/hy/addbook", data);
+    await axios.post("/hy/addused", data);
     try {
-      const response = await axios.post("/hy/addbook");
+      const response = await axios.post("/hy/addused");
       console.log(response.data);
       // alert('发布成功')
     } catch (error) {
@@ -101,40 +112,48 @@ export default function Book() {
     }
   };
   const uploadButton = (
-    <div>
+    <div 
+    style={{
+      marginTop: 2,
+      color: '#969696',
+    }}
+    >
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
       <div
         style={{
-          marginTop: 8,
+          // marginTop: 8,
+          padding: "8px",
+          color: '#969696',
         }}
       >
-        Upload
+        添加优质首图更吸引人~
       </div>
     </div>
   );
 
+  // 商品分类
   const options = [
     {
-      label: '电子类型',
-      value: '1',
+      label: "电子类型",
+      value: "65824508a688eae5697ba6a7",
     },
     {
-      label: '服饰',
-      value: '2',
+      label: "服饰",
+      value: "65824508a688eae5697ba6a8",
     },
     {
-      label: '家具',
-      value: '3',
+      label: "家具",
+      value: "65824508a688eae5697ba6a9",
     },
     {
-      label: '美妆',
-      value: '4',
+      label: "美妆",
+      value: "6582a4bd5e15000022002a82",
     },
     {
-      label: '玩具',
-      value: '5',
+      label: "玩具",
+      value: "6582a4d05e15000022002a83",
     },
-  ]
+  ];
 
   return (
     <div>
@@ -146,7 +165,6 @@ export default function Book() {
             <Ellipsis onClick={() => setShowCloseIcon(true)} fontSize={20} />
           }
         />
-
         {/* 分享 */}
         <Popup
           visible={showCloseIcon}
@@ -211,16 +229,16 @@ export default function Book() {
             </div>
 
             <div className="collapse">
-
-
-              <Form.Item name="single" label="商品类型">
-                <Selector
-                  selector-margin={"10px"}
-                  options={options}
-                  defaultValue={["1"]}
-                  onChange={(arr, extend) => console.log(arr, extend.items)}
-                />
-              </Form.Item>
+              <div className="used-sort">
+                <Form.Item name="single" label="商品类型：">
+                  <Selector
+                    selector-margin={"10px"}
+                    options={options}
+                    defaultValue={["1"]}
+                    onChange={(e) => setGoods(e)}
+                  />
+                </Form.Item>
+              </div>
             </div>
           </div>
         </div>

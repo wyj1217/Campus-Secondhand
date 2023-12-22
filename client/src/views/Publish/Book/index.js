@@ -88,7 +88,6 @@ export default function Book() {
       console.error(error);
     }
 
-    
     Toast.show({
       icon: "success",
       content: "发布成功",
@@ -112,14 +111,21 @@ export default function Book() {
     }
   };
   const uploadButton = (
-    <div>
+    <div 
+    style={{
+
+      color: '#969696',
+    }}
+    >
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
       <div
         style={{
-          marginTop: 8,
+          // marginTop: 1,
+          padding: '8px',
+          color: '#969696',
         }}
       >
-        Upload
+        添加优质首图更吸引人~
       </div>
     </div>
   );
@@ -152,15 +158,14 @@ export default function Book() {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="时间简史"
+              placeholder="添加图书标题"
             />
           </h3>
           <div className="p">
             <textarea
               onChange={(e) => setContent(e.target.value)}
               value={content}
-              placeholder="速度加快恢复精神的粉红色的反抗撒旦解放，
-            尽快核实大法师卡德加发士大夫"
+              placeholder="描述一下图书信息、图书来源…"
             />
           </div>
 
